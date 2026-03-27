@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://v6p5fp4uo14o"]
+
+[ext_resource type="PackedScene" uid="uid://h0iixqg2ivqe" path="res://debug/gamepad_debugger.tscn" id="1_h7i4d"]
+
+[node name="ControlSchemes" type="Node2D" unique_id=1798945082]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1353201364]
+
+[node name="Screen" type="Control" parent="CanvasLayer" unique_id=1502262604]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GamepadDebugger" parent="CanvasLayer/Screen" unique_id=1147803843 instance=ExtResource("1_h7i4d")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_right = 81.0
+grow_vertical = 0
