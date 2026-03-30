@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1lj2miq62bkb" path="res://debug/amy_test.gd" id="1_2gg7t"]
 
-[node name="AmyTest" type="Node2D" unique_id=411582527]
+[node name="AmyWrapper" type="Node" unique_id=443806133]
 script = ExtResource("1_2gg7t")
 
 [node name="AmyTimer" type="Timer" parent="." unique_id=646943095]
