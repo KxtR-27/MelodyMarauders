@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bn2mdtyed8g6d"]
+
+[ext_resource type="Script" uid="uid://c1lj2miq62bkb" path="res://debug/amy_test.gd" id="1_2gg7t"]
+
+[node name="AmyTest" type="Node2D" unique_id=411582527]
+script = ExtResource("1_2gg7t")
+
+[node name="AmyTimer" type="Timer" parent="." unique_id=646943095]
+one_shot = true
+
+[connection signal="timeout" from="AmyTimer" to="." method="_on_amy_timer_timeout"]
