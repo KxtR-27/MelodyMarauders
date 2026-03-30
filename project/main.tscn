@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://cdd3xnigme7uh"]
 
-[ext_resource type="Script" uid="uid://3pg28qetguky" path="res://scripts/staff_roll_scene_button.gd" id="1_ig7tw"]
-
 [node name="Main" type="Node2D" unique_id=555851919]
 
 [node name="ScreenCanvas" type="CanvasLayer" parent="." unique_id=1098293850]
@@ -11,14 +9,3 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="ScreenCanvas/ScreenControl" unique_id=644140105]
-layout_mode = 0
-offset_left = 536.0
-offset_top = 273.0
-offset_right = 704.0
-offset_bottom = 304.0
-text = "Go to staff roll scene"
-script = ExtResource("1_ig7tw")
-
-[connection signal="button_down" from="ScreenCanvas/ScreenControl/Button" to="ScreenCanvas/ScreenControl/Button" method="_on_button_down"]

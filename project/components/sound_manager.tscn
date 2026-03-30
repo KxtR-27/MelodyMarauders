@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cxqjfd4fkiren"]
+
+[ext_resource type="Script" uid="uid://dh75xdcgird1j" path="res://scripts/sound_manager.gd" id="1_rsxva"]
+[ext_resource type="AudioStream" uid="uid://ciugviqwkvoy7" path="res://assets/samples.ogg" id="2_b3sla"]
+
+[node name="SoundManager" type="Node" unique_id=178747334]
+script = ExtResource("1_rsxva")
+note = 1
+
+[node name="ViolinHit" type="Node" parent="." unique_id=1320454960]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ViolinHit" unique_id=1606595491]
+stream = ExtResource("2_b3sla")
+
+[node name="ViolinSustain" type="Node" parent="." unique_id=681202651]
