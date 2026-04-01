@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NoteSequence" format=3 uid="uid://i44da3kmrie8"]
 
-[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://resources/note_entry.gd" id="1_6e3gm"]
-[ext_resource type="Script" uid="uid://bfm6u8oxwk240" path="res://resources/note_sequence.gd" id="2_p2aoj"]
+[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note_entry.gd" id="1_6e3gm"]
+[ext_resource type="Script" uid="uid://bfm6u8oxwk240" path="res://scripts/note_player/note_sequence.gd" id="2_p2aoj"]
 
 [resource]
 script = ExtResource("2_p2aoj")
