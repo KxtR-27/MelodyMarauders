@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NoteSequence" format=3 uid="uid://basq1e2s7eame"]
 
-[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note_entry.gd" id="1_rf0b0"]
+[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="1_rf0b0"]
 [ext_resource type="Script" uid="uid://bfm6u8oxwk240" path="res://scripts/note_player/note_sequence.gd" id="2_c203w"]
 
 [sub_resource type="Resource" id="Resource_bbbah"]
@@ -54,6 +54,6 @@ metadata/_custom_type_script = "uid://dadxpfiqnn274"
 
 [resource]
 script = ExtResource("2_c203w")
-waveform = 3
+waveform = 2
 notes = Array[ExtResource("1_rf0b0")]([SubResource("Resource_bbbah"), SubResource("Resource_c7akj"), SubResource("Resource_vum33"), SubResource("Resource_uex7n"), SubResource("Resource_0qf3f"), SubResource("Resource_al2xd"), SubResource("Resource_eqgkn"), SubResource("Resource_6gmmv")])
 metadata/_custom_type_script = "uid://bfm6u8oxwk240"

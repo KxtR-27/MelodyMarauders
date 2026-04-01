@@ -4,9 +4,9 @@ extends Node
 
 
 ## emits when a note starts playing
-signal note_played(note: NoteEntry)
+signal note_played(note: Note)
 ## emits when a note stops playing
-signal note_stopped(note: NoteEntry)
+signal note_stopped(note: Note)
 ## emits when a sequence starts playing
 signal sequence_played(sequence: NoteSequence)
 ## emits when a sequence stops playing
@@ -17,6 +17,12 @@ const starting_frequency := 16.35 # C0
 @export var note_sequence: NoteSequence = NoteSequence.new()
 @export_tool_button("Play Sequence", "AudioStreamWAV") var play_sequence_button := \
 	func() -> void: play_sequence(note_sequence)
+
+@export_group("Note Preview")
+@export var preview_waveform: NoteSequence.Waves = NoteSequence.Waves.SINE
+@export var preview_note: Note = Note.new()
+@export_tool_button("Play Preview", "AudioListener2D") var preview_button := \
+	func() -> void: play_note(preview_note, preview_waveform)
 
 @onready var amy: Amy = _init_amy()
 
@@ -33,22 +39,22 @@ func _process(_delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("Hit Note"):
-		play_note(NoteEntry.new(NoteEntry.Notes.A, 4, 1))
+		play_note(Note.new(Note.Notes.A, 4, 1))
 	if Input.is_action_just_pressed("ui_up"):
-		play_note(NoteEntry.new(NoteEntry.Notes.A, 5, 1))
+		play_note(Note.new(Note.Notes.A, 5, 1))
 	if Input.is_action_just_pressed("ui_down"):
-		play_note(NoteEntry.new(NoteEntry.Notes.A, 3, 1))
+		play_note(Note.new(Note.Notes.A, 3, 1))
 
 
 func play_sequence(sequence: NoteSequence) -> void:
 	sequence_played.emit(sequence)
-	for note in sequence.get_notes():
+	for note: Note in sequence.get_notes():
 		if note: 
 			await play_note(note, sequence.waveform)
 	sequence_stopped.emit(sequence)
 
 
-func play_note(note: NoteEntry, waveform := NoteSequence.Waves.SINE) -> void:
+func play_note(note: Note, waveform := NoteSequence.Waves.SINE) -> void:
 	# ensure that the oscillator actually exists
 	if not amy: _init_amy()
 	# play note

@@ -1,20 +1,25 @@
 @tool
-class_name NoteEntry
+class_name Note
 extends Resource
 
 
 enum Notes {
-	C = 0,		
-	C_SHARP = 1, D_FLAT = 1,	
-	D = 2,		
-	D_SHARP = 3, E_FLAT = 3,	
+	C = 0,
+	C_SHARP = 1, 
+	D_FLAT = 1,
+	D = 2,
+	D_SHARP = 3, 
+	E_FLAT = 3,
 	E = 4,
-	F = 5,	
-	F_SHARP = 6,	G_FLAT = 6,	
-	G = 7,		
-	G_SHARP = 8,	A_FLAT = 8,	
-	A = 9,		
-	A_SHARP = 10,	B_FLAT = 10,
+	F = 5,
+	F_SHARP = 6,
+	G_FLAT = 6,
+	G = 7,
+	G_SHARP = 8,
+	A_FLAT = 8,
+	A = 9,
+	A_SHARP = 10,
+	B_FLAT = 10,
 	B = 11,
 }
 
@@ -22,7 +27,7 @@ static var starting_frequency := 16.35 # C0
 
 @export var note: Notes = Notes.C
 @export_range(0, 9) var octave: int = 4
-@export_range(0, 60, 0.1, "hide_control", "or_greater", "suffix:seconds") \
+@export_range(0, 60, 0.01, "hide_control", "or_greater", "suffix:seconds") \
 	var sustain: float = 1.0
 
 
