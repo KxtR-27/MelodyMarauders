@@ -15,8 +15,16 @@ signal sequence_stopped(sequence: NoteSequence)
 const starting_frequency := 16.35 # C0
 
 @export var note_sequence: NoteSequence = NoteSequence.new()
+@export_enum("Automatic", "Await") var mode: int = 0
+@export var signalToAwaitBetweenNotes: Signal
 @export_tool_button("Play Sequence", "AudioStreamWAV") var play_sequence_button := \
-	func() -> void: play_sequence(note_sequence)
+	func() -> void:
+		var overrode_mode := mode == 1 # Await
+		mode = 0 # Automatic
+		play_sequence(note_sequence)
+		await sequence_stopped
+		mode = 1 if overrode_mode else 0
+
 
 @export_group("Note Preview")
 @export var preview_waveform: NoteSequence.Waves = NoteSequence.Waves.SINE
@@ -34,23 +42,32 @@ func _init_amy() -> Amy:
 	return newAmy
 
 
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	if note_sequence:
+		play_sequence(note_sequence)
+
+
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	if Input.is_action_just_pressed("Hit Note"):
-		play_note(Note.new(Note.Notes.A, 4, 1))
-	if Input.is_action_just_pressed("ui_up"):
-		play_note(Note.new(Note.Notes.A, 5, 1))
-	if Input.is_action_just_pressed("ui_down"):
-		play_note(Note.new(Note.Notes.A, 3, 1))
+	#if Input.is_action_just_pressed("Hit Note"):
+		#play_note(Note.new(Note.Notes.A, 4, 1))
+	#if Input.is_action_just_pressed("ui_up"):
+		#play_note(Note.new(Note.Notes.A, 5, 1))
+	#if Input.is_action_just_pressed("ui_down"):
+		#play_note(Note.new(Note.Notes.A, 3, 1))
 
 
 func play_sequence(sequence: NoteSequence) -> void:
 	sequence_played.emit(sequence)
 	for note: Note in sequence.get_notes():
-		if note: 
+		if note:
 			await play_note(note, sequence.waveform)
+			if mode == 1: # Await
+					await signalToAwaitBetweenNotes
 	sequence_stopped.emit(sequence)
 
 

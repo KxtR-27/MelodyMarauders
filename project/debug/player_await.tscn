@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://doxnoe2cb2w5v"]
+
+[ext_resource type="Script" uid="uid://dnbgh2grakqus" path="res://debug/player_await.gd" id="1_tvvro"]
+[ext_resource type="Script" uid="uid://c1lj2miq62bkb" path="res://scripts/note_player/note_player.gd" id="2_2gnb8"]
+[ext_resource type="Resource" uid="uid://basq1e2s7eame" path="res://resources/sequences/zelda_notes.tres" id="3_4s5rg"]
+[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="4_fhh1y"]
+
+[sub_resource type="Resource" id="Resource_t6ldv"]
+script = ExtResource("4_fhh1y")
+
+[node name="PlayerAwait" type="Node" unique_id=1680769604]
+script = ExtResource("1_tvvro")
+
+[node name="NotePlayer" type="Node" parent="." unique_id=197525580]
+script = ExtResource("2_2gnb8")
+note_sequence = ExtResource("3_4s5rg")
+mode = 1
+preview_note = SubResource("Resource_t6ldv")
+metadata/_custom_type_script = "uid://c1lj2miq62bkb"
