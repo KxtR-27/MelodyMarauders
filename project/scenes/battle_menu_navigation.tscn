@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://ctwd7potyweht"]
+
+[ext_resource type="Script" uid="uid://c8bww438mdio" path="res://scenes/battle_menu_navigation.gd" id="1_x8jjg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8jjg"]
+bg_color = Color(0.8039216, 0.21568628, 0.25882354, 1)
+
+[node name="BattleMenuNavigation" type="Control" unique_id=1690783701 node_paths=PackedStringArray("midnight_sonata", "concierto_for_triangle", "in_bleak_midwinter", "move_description", "dmg", "mp")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8jjg")
+midnight_sonata = NodePath("Note_list_panel/Note_selection/Midnight_Sonata")
+concierto_for_triangle = NodePath("Note_list_panel/Note_selection/ConciertoForTriangle")
+in_bleak_midwinter = NodePath("Note_list_panel/Note_selection/InBleakMidwinter")
+move_description = NodePath("Note_list_panel/move_description_panel/Move_description")
+dmg = NodePath("Note_list_panel/dmg")
+mp = NodePath("Note_list_panel/mp")
+
+[node name="Action_list" type="HBoxContainer" parent="." unique_id=397584406]
+visible = false
+layout_mode = 0
+offset_left = 75.0
+offset_top = 201.0
+offset_right = 308.0
+offset_bottom = 276.0
+
+[node name="Note" type="Button" parent="Action_list" unique_id=106290622]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Rest")
+focus_neighbor_right = NodePath("../Run")
+text = "Note"
+
+[node name="Run" type="Button" parent="Action_list" unique_id=1444070349]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Note")
+focus_neighbor_right = NodePath("../Rest")
+text = "Run
+"
+
+[node name="Rest" type="Button" parent="Action_list" unique_id=793511433]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Run")
+focus_neighbor_right = NodePath("../Note")
+text = "Rest
+"
+
+[node name="Note_list_panel" type="Panel" parent="." unique_id=295160987]
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 0
+offset_left = 19.0
+offset_top = 95.0
+offset_right = 59.0
+offset_bottom = 135.0
+
+[node name="Note_selection" type="VBoxContainer" parent="Note_list_panel" unique_id=448151205]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 89.0
+offset_right = 302.0
+offset_bottom = 229.0
+
+[node name="Midnight_Sonata" type="Button" parent="Note_list_panel/Note_selection" unique_id=213168979]
+layout_mode = 2
+focus_neighbor_top = NodePath("../InBleakMidwinter")
+theme_override_font_sizes/font_size = 26
+text = "Midnight Sonata"
+
+[node name="ConciertoForTriangle" type="Button" parent="Note_list_panel/Note_selection" unique_id=142873913]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Concierto For Triangle"
+
+[node name="InBleakMidwinter" type="Button" parent="Note_list_panel/Note_selection" unique_id=792554453]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Midnight_Sonata")
+theme_override_font_sizes/font_size = 26
+text = "In Bleak Midwinter"
+
+[node name="Control Guide" type="Label" parent="Note_list_panel" unique_id=228452753]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -30.0
+offset_right = 175.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 21
+text = "A: Select  B: Back"
+
+[node name="move_description_panel" type="Panel" parent="Note_list_panel" unique_id=1621225258]
+z_index = -1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -276.0
+offset_top = -324.0
+offset_right = -16.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8jjg")
+
+[node name="Move_description" type="Label" parent="Note_list_panel/move_description_panel" unique_id=1108180250]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_right = 123.0
+offset_bottom = 258.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "This is blank descripition that  should never be readable to any type of player that would be playing this game omg if you are seeing this you are probably some type of evil genius or some super duper smart hacker."
+autowrap_mode = 3
+
+[node name="dmg" type="Label" parent="Note_list_panel" unique_id=1644883760]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -277.0
+offset_top = 2.0
+offset_right = -200.0
+offset_bottom = 25.0
+grow_horizontal = 0
+text = "dmg: a lot"
+
+[node name="mp" type="Label" parent="Note_list_panel" unique_id=1279773133]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -86.0
+offset_top = 2.0
+offset_right = -18.0
+offset_bottom = 25.0
+grow_horizontal = 0
+text = "mp: a lot"
