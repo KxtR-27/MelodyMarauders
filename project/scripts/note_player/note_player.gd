@@ -30,6 +30,7 @@ enum PlayAwaitTypes {
 
 const starting_frequency := 16.35 # C0
 
+@export_group("Note Sequence")
 @export var note_sequence: NoteSequence = NoteSequence.new()
 @export_enum("Automatic", "Await") var mode: int = 0
 @export_tool_button("Play Sequence", "AudioStreamWAV") var play_sequence_button := \
@@ -45,6 +46,12 @@ const starting_frequency := 16.35 # C0
 	func() -> void: 
 		print("playing note preview in editor")
 		play_note(preview_note, preview_waveform)
+
+@export_category("Hit this button in the editor. Idk why this happens.")
+@export_tool_button("Reset Synthesizer", "Reload") var reset_button: Callable = \
+	func() -> void:
+		if amy: amy.free()
+		amy = _init_amy()
 
 @onready var amy: Amy = _init_amy()
 
