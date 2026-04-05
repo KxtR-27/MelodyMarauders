@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://3wy3bm3yh6mm" path="res://assets/icon.svg" id="1_3fj4c"]
 [ext_resource type="Script" uid="uid://dq572vvx7xv4i" path="res://scripts/arpeggio_frame.gd" id="1_ooqln"]
-[ext_resource type="PackedScene" uid="uid://j4kp3gvwemce" path="res://components/staff_roll_arpeggio.tscn" id="1_rojaf"]
 
 [node name="ArpeggioFrame" type="Control" unique_id=1300448282]
 layout_mode = 3
@@ -67,6 +66,3 @@ texture = ExtResource("1_3fj4c")
 [node name="enemy_icon" type="Sprite2D" parent="CanvasLayer" unique_id=343886709]
 position = Vector2(985, 512)
 texture = ExtResource("1_3fj4c")
-
-[node name="StaffRoll" parent="." unique_id=817701890 instance=ExtResource("1_rojaf")]
-visible = false

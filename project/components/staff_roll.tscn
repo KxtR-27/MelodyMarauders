@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://mlmfy2oy28cr"]
 
-[ext_resource type="Texture2D" uid="uid://dql7qp0tv0xr8" path="res://assets/test_staff_with_notes.webp" id="1_bk2oq"]
-[ext_resource type="Script" uid="uid://cf1by1hw8eur0" path="res://scripts/staff_roll.gd" id="1_qn7q8"]
-[ext_resource type="Script" uid="uid://20omwecx306p" path="res://scripts/cursor.gd" id="3_awu8h"]
-[ext_resource type="Script" uid="uid://dl4570hckp5gt" path="res://scripts/master_cursor.gd" id="4_f134u"]
+[ext_resource type="Texture2D" uid="uid://dmfefoctyappj" path="res://assets/test_staff_with_notes.webp" id="1_bk2oq"]
+[ext_resource type="Script" uid="uid://c5uvl5edtocg7" path="res://scripts/master_cursor.gd" id="4_f134u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f134u"]
 radius = 5.0
@@ -19,8 +17,6 @@ metadata/_edit_lock_ = true
 
 [node name="StaffRoll" type="Node2D" parent="." unique_id=773958962]
 position = Vector2(2750, 324)
-script = ExtResource("1_qn7q8")
-speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="StaffRoll" unique_id=121381812]
 scale = Vector2(2.3284228, 1)
@@ -119,7 +115,6 @@ shape = SubResource("CapsuleShape2D_f134u")
 
 [node name="Cursor" type="Area2D" parent="." unique_id=541207230]
 visible = false
-script = ExtResource("3_awu8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor" unique_id=763195464]
 position = Vector2(151, 297)

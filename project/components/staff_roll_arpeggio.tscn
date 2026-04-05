@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://j4kp3gvwemce"]
 
-[ext_resource type="Script" path="res://scripts/staff_roll.gd" id="1_g15nn"]
 [ext_resource type="Texture2D" uid="uid://bityvgbr6nsh4" path="res://assets/test_staff_without_notes.png" id="2_378vu"]
 [ext_resource type="Texture2D" uid="uid://ylolhvxwn08e" path="res://assets/whole_note.png" id="3_1hohq"]
 [ext_resource type="AudioStream" uid="uid://cigpminhwx87r" path="res://assets/sounds/freesound_community-c6-102822.mp3" id="6_nufpl"]
