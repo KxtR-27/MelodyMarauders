@@ -19,16 +19,19 @@ static var open_note_map: Dictionary[OpenNoteTypes, Note] = {
 	OpenNoteTypes.TOP: Note.new(Note.Notes.E, 5),
 }
 
+@export var current_open_input: String
 @export var current_open_type: OpenNoteTypes
 @export var current_valve_combo: Array[bool] = [false, false, false]
 @export var current_note: Note = Note.new()
 @export_tool_button("Update Note", "AudioStreamPolyphonic") var upd_n_btn := \
 	func() -> void: _update_current_note()
 
-@onready var note_player: NotePlayer = $NotePlayer
+@onready var note_player: NotePlayer
 
 
 func _ready() -> void:
+	note_player = (load("res://components/note_player.tscn") as PackedScene).instantiate() as NotePlayer
+	self.add_child(note_player)
 	_update_current_note()
 
 
@@ -37,12 +40,15 @@ func _process(_delta: float) -> void:
 	
 	if _update_open_type() or _update_valve_combo():
 		_update_current_note()
-		note_player.play_note(current_note)
-
+		note_player.play_note(current_note, NoteSequence.Waves.PULSE, true)
+	
+	if current_open_input and Input.is_action_just_released(current_open_input):
+		note_player.stop_note()
 
 func _update_open_type() -> bool:
 	for input: String in open_type_map.keys():
 		if Input.is_action_just_pressed(input):
+			current_open_input = input
 			current_open_type = open_type_map.get(input)
 			return true
 	

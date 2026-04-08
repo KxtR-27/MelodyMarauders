@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://8jh4up8yjhsy"]
+
+[ext_resource type="Script" uid="uid://sycnbf8708ow" path="res://debug/gamepad_display.gd" id="1_4s77v"]
+[ext_resource type="Script" uid="uid://bjnv2s3qy2w06" path="res://scripts/trumpet_controller.gd" id="2_ald8e"]
+[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="3_dyvmd"]
+
+[sub_resource type="Resource" id="Resource_f8bww"]
+script = ExtResource("3_dyvmd")
+debug_frequency = 261.6
+
+[node name="TrumpetControllerTest" type="Node2D" unique_id=1818084558]
+
+[node name="TrumpetController" type="Node" parent="." unique_id=252365669]
+script = ExtResource("2_ald8e")
+current_note = SubResource("Resource_f8bww")
+metadata/_custom_type_script = "uid://bjnv2s3qy2w06"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=239335447]
+
+[node name="GamepadDisplay" type="Control" parent="CanvasLayer" unique_id=1414956076]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -34.5
+offset_right = 40.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.000458, 2.000458)
+script = ExtResource("1_4s77v")
+metadata/_custom_type_script = "uid://sycnbf8708ow"
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1608055004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

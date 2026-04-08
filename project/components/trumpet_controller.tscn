@@ -16,6 +16,7 @@ metadata/_custom_type_script = "uid://dadxpfiqnn274"
 
 [node name="TrumpetController" type="Node" unique_id=581634359]
 script = ExtResource("1_f8bww")
+current_open_input = null
 current_note = SubResource("Resource_f8bww")
 
 [node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("1_xrsue")]

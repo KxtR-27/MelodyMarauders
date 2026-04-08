@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v6p5fp4uo14o"]
 
-[ext_resource type="PackedScene" uid="uid://h0iixqg2ivqe" path="res://debug/gamepad_debugger.tscn" id="1_h7i4d"]
+[ext_resource type="PackedScene" uid="uid://h0iixqg2ivqe" path="res://debug/gamepad_display.tscn" id="1_h7i4d"]
 
 [node name="ControlSchemes" type="Node2D" unique_id=1798945082]
 

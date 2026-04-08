@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://h0iixqg2ivqe"]
+
+[ext_resource type="Script" uid="uid://sycnbf8708ow" path="res://debug/gamepad_display.gd" id="1_4ndo1"]
+
+[node name="GamepadDisplay" type="Control" unique_id=1147803843]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 69.0
+script = ExtResource("1_4ndo1")

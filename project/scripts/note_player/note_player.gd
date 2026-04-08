@@ -105,7 +105,7 @@ func play_sequence_awaiting(sequence: NoteSequence) -> void:
 	print("end")
 
 
-func play_note(note: Note, waveform := NoteSequence.Waves.SINE) -> void:
+func play_note(note: Note, waveform := NoteSequence.Waves.SINE, should_sustain: bool = false) -> void:
 	if not note: return
 	# ensure that the oscillator actually exists
 	if not amy: _init_amy()
@@ -113,8 +113,14 @@ func play_note(note: Note, waveform := NoteSequence.Waves.SINE) -> void:
 	amy.send({"osc": 0, "wave": waveform, "freq": note.get_frequency(), "vel": 1})
 	note_played.emit(note)
 	# wait for it to "finish" (thank you Xander)
-	await get_tree().create_timer(note.sustain).timeout
-	# stop note
+	if not should_sustain:
+		await get_tree().create_timer(note.sustain).timeout
+		stop_note(note)
+	else:
+		print("Note %s is being sustained! You will have to stop it manually!" % note)
+
+
+func stop_note(note: Note = null) -> void:
 	amy.send({"osc": 0, "vel": 0})
 	note_stopped.emit(note)
 

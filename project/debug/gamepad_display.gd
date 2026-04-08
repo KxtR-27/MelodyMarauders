@@ -1,4 +1,5 @@
 @tool
+class_name GamepadDisplay
 extends Control
 
 # from [https://gist.github.com/anthonyec/5342fce79b2b7b22ada748df0ad7f7c0]
