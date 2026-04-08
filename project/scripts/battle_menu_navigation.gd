@@ -15,12 +15,15 @@ var currently_selected_move: move_attack = null
 @export var move_list: Dictionary[String, move_attack]
 
 
+
+
 func _ready() -> void:
 	note.grab_focus.call_deferred()
 	note.pressed.connect(_on_button_pressed)
 	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)
 	action_list.visible = true
 	note_list.visible = false
+
 
 
 func _process(_delta: float) -> void:
@@ -31,7 +34,8 @@ func _process(_delta: float) -> void:
 
 	if note_list.visible and Input.is_action_just_pressed("ui_accept"):
 		print("I would be attacking right now")
-		attack_enemy.emit()
+		attack_enemy.emit(currently_selected_move.DMG)
+
 
 
 func _on_button_pressed() -> void:
