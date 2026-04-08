@@ -106,6 +106,7 @@ func play_sequence_awaiting(sequence: NoteSequence) -> void:
 
 
 func play_note(note: Note, waveform := NoteSequence.Waves.SINE) -> void:
+	if not note: return
 	# ensure that the oscillator actually exists
 	if not amy: _init_amy()
 	# play note

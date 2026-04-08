@@ -25,10 +25,19 @@ enum Notes {
 
 static var starting_frequency := 16.35 # C0
 
-@export var note: Notes = Notes.C
-@export_range(0, 9) var octave: int = 4
+@export var note: Notes = Notes.C:
+	set(new_note):
+		note = new_note
+		debug_frequency = self.get_frequency()
+@export_range(0, 9) var octave: int = 4:
+	set(new_octave):
+		octave = new_octave
+		debug_frequency = self.get_frequency()
 @export_range(0, 60, 0.01, "hide_control", "or_greater", "suffix:seconds") \
 	var sustain: float = 1.0
+
+@export_group("Debug")
+@export var debug_frequency: float
 
 
 func _init(n: Notes = Notes.C, o: int = 4, s: float = 1.0) -> void:
