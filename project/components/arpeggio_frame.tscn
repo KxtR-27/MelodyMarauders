@@ -15,6 +15,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooqln"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.65882355, 0.101960786, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="ArpeggioFrame" type="Control" unique_id=1300448282]
 layout_mode = 3
 anchors_preset = 15
@@ -61,3 +73,15 @@ texture = ExtResource("1_3fj4c")
 [node name="enemy_icon" type="Sprite2D" parent="CanvasLayer" unique_id=343886709]
 position = Vector2(985, 512)
 texture = ExtResource("1_3fj4c")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1024962582]
+z_index = 4096
+offset_left = 447.0
+offset_top = 280.0
+offset_right = 611.00006
+offset_bottom = 311.0
+scale = Vector2(1.6040133, 1.6040133)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ooqln")
+text = "get rand accuracy %"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
