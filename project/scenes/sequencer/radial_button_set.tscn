@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ba5o2s7vhmse0"]
+
+[ext_resource type="StyleBox" path="res://resources/sequencer/active.tres" id="1_q30y4"]
+[ext_resource type="StyleBox" path="res://resources/sequencer/inactive.tres" id="2_5u3y4"]
+
+[sub_resource type="GDScript" id="GDScript_pp2tb"]
+script/source = "extends RadialButtonSet
+"
+
+[node name="RadialButtonSet" type="BoxContainer" unique_id=207661819]
+script = SubResource("GDScript_pp2tb")
+active_stylebox = ExtResource("1_q30y4")
+inactive_stylebox = ExtResource("2_5u3y4")
+metadata/_custom_type_script = "uid://dn5toegvqja1n"

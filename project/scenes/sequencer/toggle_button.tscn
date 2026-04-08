@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bl7kndb76pt41"]
+
+[ext_resource type="Script" uid="uid://dncgnf7hmx86y" path="res://scripts/sequencer/toggle_button.gd" id="1_78nx7"]
+[ext_resource type="StyleBox" path="res://resources/sequencer/active.tres" id="2_25ogr"]
+[ext_resource type="StyleBox" path="res://resources/sequencer/inactive.tres" id="3_2ebtb"]
+
+[node name="ToggleButton" type="Button" unique_id=1583847612]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_78nx7")
+active_stylebox = ExtResource("2_25ogr")
+inactive_stylebox = ExtResource("3_2ebtb")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]

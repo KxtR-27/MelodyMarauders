@@ -1,0 +1,553 @@
+[gd_scene format=3 uid="uid://b13m3drs0t5rv"]
+
+[ext_resource type="Script" uid="uid://bbu5c3t63rfrp" path="res://scripts/sequencer/music_maker.gd" id="1_q1rcg"]
+[ext_resource type="Script" uid="uid://bth5bgghkt8vi" path="res://scripts/sequencer/radial_button_set.gd" id="2_140sb"]
+[ext_resource type="Script" uid="uid://cc74qymmpgsf" path="res://scripts/sequencer/amy_manager.gd" id="2_q1rcg"]
+[ext_resource type="StyleBox" uid="uid://c3j7mlrs2smae" path="res://resources/sequencer/active.tres" id="3_k3gig"]
+[ext_resource type="Script" uid="uid://xb63l2lv4qge" path="res://scripts/sequencer/track_container.gd" id="3_r205u"]
+[ext_resource type="StyleBox" uid="uid://d1jbegjyts83i" path="res://resources/sequencer/inactive.tres" id="4_23yh4"]
+[ext_resource type="PackedScene" uid="uid://2lckys4dxg56" path="res://scenes/sequencer/incrementable_field.tscn" id="6_gl8qd"]
+[ext_resource type="Script" uid="uid://djlwybbrbs34j" path="res://scripts/sequencer/editing_modes_container.gd" id="6_ibqgg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ut5r"]
+bg_color = Color(0.97529536, 0.97529536, 0.97529536, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jsgw"]
+bg_color = Color(0.31764707, 0.4117647, 0.8745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r205u"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_guxq5"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4da6"]
+bg_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w27ve"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_140sb"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnd6d"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[node name="MusicMaker" type="Node2D" unique_id=969044778]
+script = ExtResource("1_q1rcg")
+
+[node name="AmyManager" type="Node" parent="." unique_id=677905113]
+script = ExtResource("2_q1rcg")
+
+[node name="MeasureTimer" type="Timer" parent="." unique_id=216604019]
+
+[node name="Main" type="Control" parent="." unique_id=1134000532]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="MainPanel" type="Panel" parent="Main" unique_id=173617037]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ut5r")
+
+[node name="SaveInformation" type="Panel" parent="Main" unique_id=1923916511]
+visible = false
+top_level = true
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveSongVBox" type="VBoxContainer" parent="Main/SaveInformation" unique_id=866807110]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="SaveSongLabel" type="Label" parent="Main/SaveInformation/SaveSongVBox" unique_id=1834575791]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Save Song"
+horizontal_alignment = 1
+
+[node name="SongTitleLabel" type="Label" parent="Main/SaveInformation/SaveSongVBox" unique_id=2094571479]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Song Title"
+horizontal_alignment = 1
+
+[node name="SongTitleLineEdit" type="LineEdit" parent="Main/SaveInformation/SaveSongVBox" unique_id=2045031873]
+z_index = 4
+layout_mode = 2
+placeholder_text = "Enter a song title here"
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main/SaveInformation/SaveSongVBox" unique_id=405891903]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="SaveSongButton" type="Button" parent="Main/SaveInformation/SaveSongVBox/HBoxContainer" unique_id=1328466793]
+z_index = 4
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0jsgw")
+text = "Save Song"
+
+[node name="CancelSaveButton" type="Button" parent="Main/SaveInformation/SaveSongVBox/HBoxContainer" unique_id=1617019908]
+z_index = 4
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0jsgw")
+text = "Cancel"
+
+[node name="FileDialog" type="FileDialog" parent="Main" unique_id=631971218]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+file_mode = 0
+access = 1
+
+[node name="TrackPanel" type="Panel" parent="Main" unique_id=1009358034]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -270.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tracks" type="HBoxContainer" parent="Main/TrackPanel" unique_id=88188650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="IconContainer" type="VBoxContainer" parent="Main/TrackPanel/Tracks" unique_id=1459258408]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="TrackScrollbar" type="ScrollContainer" parent="Main/TrackPanel/Tracks" unique_id=1717077843]
+custom_minimum_size = Vector2(1700, 800)
+layout_mode = 2
+theme_override_constants/scrollbar_h_separation = 2
+
+[node name="TrackContainer" type="VBoxContainer" parent="Main/TrackPanel/Tracks/TrackScrollbar" unique_id=932185090]
+clip_contents = true
+custom_minimum_size = Vector2(5000, 800)
+layout_mode = 2
+script = ExtResource("3_r205u")
+
+[node name="PitchPanel" type="Panel" parent="Main" unique_id=512902592]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 180.0
+
+[node name="PitchContainer" type="VBoxContainer" parent="Main/PitchPanel" unique_id=123470638]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PitchLabel" type="Label" parent="Main/PitchPanel/PitchContainer" unique_id=1160628437]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Accidental"
+horizontal_alignment = 1
+
+[node name="Accidentals" type="BoxContainer" parent="Main/PitchPanel/PitchContainer" unique_id=1987269202 node_paths=PackedStringArray("initial_selection")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("2_140sb")
+initial_selection = NodePath("natural")
+active_stylebox = ExtResource("3_k3gig")
+inactive_stylebox = ExtResource("4_23yh4")
+
+[node name="natural" type="Button" parent="Main/PitchPanel/PitchContainer/Accidentals" unique_id=680213853]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "♮"
+
+[node name="flat" type="Button" parent="Main/PitchPanel/PitchContainer/Accidentals" unique_id=1867695954]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "♭"
+
+[node name="sharp" type="Button" parent="Main/PitchPanel/PitchContainer/Accidentals" unique_id=2109297960]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "♯"
+
+[node name="NoteLabel" type="Label" parent="Main/PitchPanel/PitchContainer" unique_id=768612240]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Note"
+horizontal_alignment = 1
+
+[node name="PitchButtons" type="BoxContainer" parent="Main/PitchPanel/PitchContainer" unique_id=875049524 node_paths=PackedStringArray("initial_selection")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("2_140sb")
+initial_selection = NodePath("C")
+active_stylebox = ExtResource("3_k3gig")
+inactive_stylebox = ExtResource("4_23yh4")
+
+[node name="C" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=574058012]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "C"
+
+[node name="D" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=1673777629]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "D"
+
+[node name="E" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=680878842]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "E"
+
+[node name="F" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=824582301]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "F"
+
+[node name="G" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=1194232789]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "G"
+
+[node name="A" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=59030883]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "A"
+
+[node name="B" type="Button" parent="Main/PitchPanel/PitchContainer/PitchButtons" unique_id=1411978237]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "B"
+
+[node name="OctaveLabel" type="Label" parent="Main/PitchPanel/PitchContainer" unique_id=1559727342]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Octave"
+horizontal_alignment = 1
+
+[node name="OctaveButtons" type="BoxContainer" parent="Main/PitchPanel/PitchContainer" unique_id=77632011 node_paths=PackedStringArray("initial_selection")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("2_140sb")
+initial_selection = NodePath("4")
+active_stylebox = ExtResource("3_k3gig")
+inactive_stylebox = ExtResource("4_23yh4")
+
+[node name="1" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=1284089356]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="2" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=1130236078]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "2"
+
+[node name="3" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=1759157492]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "3"
+
+[node name="4" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=1362480877]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "4"
+
+[node name="5" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=852059751]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "5"
+
+[node name="6" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=757591975]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "6"
+
+[node name="7" type="Button" parent="Main/PitchPanel/PitchContainer/OctaveButtons" unique_id=765345422]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "7"
+
+[node name="EditingModePanel" type="Panel" parent="Main" unique_id=658252554]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 0
+offset_left = 500.0
+offset_right = 900.0
+offset_bottom = 250.0
+
+[node name="EditingModeContainer" type="VBoxContainer" parent="Main/EditingModePanel" unique_id=496657161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="EditingModeLabel" type="Label" parent="Main/EditingModePanel/EditingModeContainer" unique_id=327229838]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Editing Mode"
+horizontal_alignment = 1
+
+[node name="EditingModesContainer" type="HBoxContainer" parent="Main/EditingModePanel/EditingModeContainer" unique_id=216070780]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+script = ExtResource("6_ibqgg")
+
+[node name="ActivateContainer" type="VBoxContainer" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" unique_id=531162108]
+layout_mode = 2
+
+[node name="ActivateButton" type="Button" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/ActivateContainer" unique_id=1712180730]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_r205u")
+text = "Activate
+Note"
+
+[node name="Label" type="Label" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/ActivateContainer" unique_id=518004162]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "^"
+horizontal_alignment = 1
+
+[node name="DeactivateContainer" type="VBoxContainer" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" unique_id=1652815904]
+layout_mode = 2
+
+[node name="DeactivateButton" type="Button" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/DeactivateContainer" unique_id=1351498650]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_guxq5")
+text = "Deactivate
+Note"
+
+[node name="Label" type="Label" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/DeactivateContainer" unique_id=1668710806]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "^"
+horizontal_alignment = 1
+
+[node name="SustainContainer" type="VBoxContainer" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" unique_id=1529897654]
+layout_mode = 2
+
+[node name="SustainButton" type="Button" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/SustainContainer" unique_id=427387087]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4da6")
+text = "Sustain"
+
+[node name="Label" type="Label" parent="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/SustainContainer" unique_id=1967442112]
+visible = false
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 40
+text = "^"
+horizontal_alignment = 1
+
+[node name="SongInformation" type="Panel" parent="Main" unique_id=369612195]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 0
+offset_left = 1000.0
+offset_right = 1400.0
+offset_bottom = 250.0
+
+[node name="SongInformationContainer" type="VBoxContainer" parent="Main/SongInformation" unique_id=256492749]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="MeasureField" parent="Main/SongInformation/SongInformationContainer" unique_id=435099231 instance=ExtResource("6_gl8qd")]
+layout_mode = 2
+descriptor = "Measure"
+
+[node name="TempoField" parent="Main/SongInformation/SongInformationContainer" unique_id=836667940 instance=ExtResource("6_gl8qd")]
+layout_mode = 2
+starting_value = 90
+descriptor = "Tempo"
+
+[node name="TestAudioButton" type="Button" parent="Main/SongInformation/SongInformationContainer" unique_id=200636233]
+layout_mode = 2
+text = "Click to test audio"
+
+[node name="PlaybackPanel" type="Panel" parent="Main" unique_id=928245470]
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 0
+offset_left = 1500.0
+offset_right = 1900.0
+offset_bottom = 250.0
+
+[node name="PlaybackContainer" type="VBoxContainer" parent="Main/PlaybackPanel" unique_id=1638932420]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="PlaybackLabel" type="Label" parent="Main/PlaybackPanel/PlaybackContainer" unique_id=730913883]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Playback"
+horizontal_alignment = 1
+
+[node name="PlaybackButtonsContainer" type="HBoxContainer" parent="Main/PlaybackPanel/PlaybackContainer" unique_id=1676219178]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="Main/PlaybackPanel/PlaybackContainer/PlaybackButtonsContainer" unique_id=202116658]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w27ve")
+text = "Play"
+
+[node name="PlayFromBeginningButton" type="Button" parent="Main/PlaybackPanel/PlaybackContainer/PlaybackButtonsContainer" unique_id=1451797071]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_140sb")
+text = "Play From Beginning"
+
+[node name="StopButton" type="Button" parent="Main/PlaybackPanel/PlaybackContainer/PlaybackButtonsContainer" unique_id=953670374]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nnd6d")
+text = "Stop"
+
+[node name="SaveLoadLabel" type="Label" parent="Main/PlaybackPanel/PlaybackContainer" unique_id=135114471]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Save / Load"
+horizontal_alignment = 1
+
+[node name="SaveLoadContainer" type="HBoxContainer" parent="Main/PlaybackPanel/PlaybackContainer" unique_id=1471035303]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SaveButton" type="Button" parent="Main/PlaybackPanel/PlaybackContainer/SaveLoadContainer" unique_id=1300565283]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w27ve")
+text = "Save Song"
+
+[node name="LoadButton" type="Button" parent="Main/PlaybackPanel/PlaybackContainer/SaveLoadContainer" unique_id=126724157]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nnd6d")
+text = "Load Song"
+
+[connection signal="timeout" from="MeasureTimer" to="." method="_on_beat_timer_timeout"]
+[connection signal="button_down" from="Main/SaveInformation/SaveSongVBox/HBoxContainer/SaveSongButton" to="." method="_on_save_song_button_button_down"]
+[connection signal="button_down" from="Main/SaveInformation/SaveSongVBox/HBoxContainer/CancelSaveButton" to="." method="_on_cancel_save_button_button_down"]
+[connection signal="file_selected" from="Main/FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="value_changed" from="Main/PitchPanel/PitchContainer/Accidentals" to="." method="_on_accidentals_value_changed"]
+[connection signal="value_changed" from="Main/PitchPanel/PitchContainer/PitchButtons" to="." method="_on_pitch_buttons_value_changed"]
+[connection signal="value_changed" from="Main/PitchPanel/PitchContainer/OctaveButtons" to="." method="_on_octave_buttons_value_changed"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/ActivateContainer/ActivateButton" to="." method="_on_activate_button_button_down"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/ActivateContainer/ActivateButton" to="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" method="_on_activate_button_button_down"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/DeactivateContainer/DeactivateButton" to="." method="_on_deactivate_button_button_down"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/DeactivateContainer/DeactivateButton" to="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" method="_on_deactivate_button_button_down"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/SustainContainer/SustainButton" to="." method="_on_sustain_button_button_down"]
+[connection signal="button_down" from="Main/EditingModePanel/EditingModeContainer/EditingModesContainer/SustainContainer/SustainButton" to="Main/EditingModePanel/EditingModeContainer/EditingModesContainer" method="_on_sustain_button_button_down"]
+[connection signal="value_changed" from="Main/SongInformation/SongInformationContainer/TempoField" to="." method="_on_tempo_field_value_changed"]
+[connection signal="button_down" from="Main/SongInformation/SongInformationContainer/TestAudioButton" to="." method="_on_test_audio_button_button_down"]
+[connection signal="button_down" from="Main/PlaybackPanel/PlaybackContainer/PlaybackButtonsContainer/PlayFromBeginningButton" to="." method="_on_play_from_beginning_button_button_down"]
+[connection signal="button_down" from="Main/PlaybackPanel/PlaybackContainer/PlaybackButtonsContainer/StopButton" to="." method="_on_stop_button_button_down"]
+[connection signal="button_down" from="Main/PlaybackPanel/PlaybackContainer/SaveLoadContainer/SaveButton" to="." method="_on_save_button_button_down"]
+[connection signal="button_down" from="Main/PlaybackPanel/PlaybackContainer/SaveLoadContainer/LoadButton" to="." method="_on_load_button_button_down"]

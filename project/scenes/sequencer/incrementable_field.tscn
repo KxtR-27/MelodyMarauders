@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://2lckys4dxg56"]
+
+[ext_resource type="Script" uid="uid://barvrqfccjycu" path="res://scripts/sequencer/incrementable_field.gd" id="1_85x5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nxtq"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0cdw"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[node name="IncrementableField" type="HBoxContainer" unique_id=435099231]
+custom_minimum_size = Vector2(0, 40)
+theme_override_constants/separation = 8
+alignment = 1
+script = ExtResource("1_85x5p")
+starting_value = 1
+
+[node name="Descriptor" type="Label" parent="." unique_id=936323255]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Placeholder: "
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="." unique_id=1197764100]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1"
+placeholder_text = "1"
+alignment = 2
+
+[node name="IncrementButton" type="Button" parent="." unique_id=948051838]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nxtq")
+text = "+"
+
+[node name="DecrementButton" type="Button" parent="." unique_id=944525805]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_y0cdw")
+text = "-"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="button_down" from="IncrementButton" to="." method="_on_increment_button_button_down"]
+[connection signal="button_down" from="DecrementButton" to="." method="_on_decrement_button_button_down"]

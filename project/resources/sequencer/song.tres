@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bn650vf1d7uqi"]
+
+[ext_resource type="Script" uid="uid://nna5uo7s28n2" path="res://scripts/sequencer/song.gd" id="1_fv0es"]
+
+[resource]
+script = ExtResource("1_fv0es")
+metadata/_custom_type_script = "uid://dedatyjhbidc5"

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://cpngqh8hemaer"]
+
+[ext_resource type="Script" uid="uid://wgijpnlftu5w" path="res://scripts/sequencer/sequencer_note.gd" id="1_u46qh"]
+
+[resource]
+script = ExtResource("1_u46qh")

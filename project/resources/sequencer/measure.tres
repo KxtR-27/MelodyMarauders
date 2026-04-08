@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Measure" format=3 uid="uid://c6wja6obaccih"]
+
+[ext_resource type="Script" uid="uid://kuyy5y70d7ml" path="res://scripts/sequencer/measure.gd" id="1_edqre"]
+
+[resource]
+script = ExtResource("1_edqre")

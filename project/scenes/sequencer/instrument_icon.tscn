@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://qc3a3jk0fkv6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hmhk"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+
+[node name="InstrumentIcon" type="Panel" unique_id=332679160]
+custom_minimum_size = Vector2(140, 100)
+theme_override_styles/panel = SubResource("StyleBoxFlat_4hmhk")
+
+[node name="Label" type="Label" parent="." unique_id=776730810]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Instrument
+Name"
+horizontal_alignment = 1
+vertical_alignment = 1
