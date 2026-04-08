@@ -3,6 +3,18 @@
 [ext_resource type="Texture2D" uid="uid://3wy3bm3yh6mm" path="res://assets/icon.svg" id="1_3fj4c"]
 [ext_resource type="Script" uid="uid://dq572vvx7xv4i" path="res://scripts/arpeggio_frame.gd" id="1_ooqln"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fj4c"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="ArpeggioFrame" type="Control" unique_id=1300448282]
 layout_mode = 3
 anchors_preset = 15
@@ -14,29 +26,12 @@ script = ExtResource("1_ooqln")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1825526601]
 
-[node name="top_panel" type="Panel" parent="CanvasLayer" unique_id=2034542089]
-offset_left = 35.0
-offset_top = 63.0
-offset_right = 1109.0
-offset_bottom = 259.0
-
-[node name="bottom_panel" type="Panel" parent="CanvasLayer" unique_id=320209557]
+[node name="defense_panel" type="Panel" parent="CanvasLayer" unique_id=320209557]
 offset_left = 36.0
-offset_top = 381.0
+offset_top = 62.0
 offset_right = 1109.0
 offset_bottom = 607.0
-
-[node name="right_panel" type="Panel" parent="CanvasLayer" unique_id=2011042430]
-offset_left = 935.0
-offset_top = 259.0
-offset_right = 1108.9736
-offset_bottom = 381.0
-
-[node name="left_panel" type="Panel" parent="CanvasLayer" unique_id=310152758]
-offset_left = 36.0
-offset_top = 259.0
-offset_right = 212.97363
-offset_bottom = 381.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3fj4c")
 
 [node name="accuracy_attack" type="Label" parent="CanvasLayer" unique_id=1658254982]
 offset_left = 103.0

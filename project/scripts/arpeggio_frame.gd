@@ -2,10 +2,10 @@ extends Control
 
 # amount of notes players need to guess (1? for now)
 # accuracy variable same as used in attack script - get from there
-# 
-var noteGuessAmount = 1
-var rightNote: bool = false 
 
+#var noteGuessAmount = 1
+#var rightNote: bool = false 
+var enemyAttackPoints: number = 10;
 
 signal close_defense
 
