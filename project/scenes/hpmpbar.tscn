@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://66uyqv601b5e"]
+
+[ext_resource type="Script" uid="uid://cufqksi37q4cx" path="res://scenes/player_1hpmp.gd" id="1_ga2hq"]
+[ext_resource type="Texture2D" uid="uid://3wy3bm3yh6mm" path="res://assets/icon.svg" id="1_kdjvn"]
+
+[node name="Player1HPMP" type="Panel" unique_id=1726576926]
+offset_left = 53.0
+offset_top = 17.0
+offset_right = 274.0
+offset_bottom = 64.0
+script = ExtResource("1_ga2hq")
+
+[node name="HPValue" type="Label" parent="." unique_id=2089969120]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009049774
+anchor_right = 0.009049774
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 194.0
+offset_bottom = 61.0
+text = "Health: 10/10
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="MPValue" type="Label" parent="." unique_id=371311584]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54298645
+anchor_right = 0.54298645
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 194.0
+offset_bottom = 61.0
+text = "MP: 10/10
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="HPMPPortrait" type="Sprite2D" parent="." unique_id=423078761]
+position = Vector2(-20, 17)
+scale = Vector2(0.3984375, 0.3984375)
+texture = ExtResource("1_kdjvn")
