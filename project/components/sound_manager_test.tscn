@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://b13lq6gsv6m4p"]
 
-[ext_resource type="Script" uid="uid://cbt4tpn7412v" path="res://components/sound_manager_test.gd" id="1_an60l"]
+[ext_resource type="Script" uid="uid://cbt4tpn7412v" path="res://scripts/sound_manager_test.gd" id="1_an60l"]
 [ext_resource type="PackedScene" uid="uid://cxqjfd4fkiren" path="res://components/sound_manager.tscn" id="2_4gebw"]
+
 
 [node name="SoundManagerTest" type="Node2D" unique_id=1986599333]
 script = ExtResource("1_an60l")

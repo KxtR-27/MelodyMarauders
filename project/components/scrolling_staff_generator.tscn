@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://dik007inyrm85"]
+
+[ext_resource type="Script" uid="uid://baa77sy5wyiwy" path="res://scripts/scrolling_staff_generator.gd" id="1_bfgn8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74jum"]
+bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vrpol"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g86js"]
+height = 400.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfgn8"]
+size = Vector2(20, 648)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bfgn8"]
+
+[node name="ScrollingStaffGenerator" type="Node2D" unique_id=215309787]
+script = ExtResource("1_bfgn8")
+
+[node name="MeasureTimer" type="Timer" parent="." unique_id=1680440629]
+
+[node name="MainControl" type="Control" parent="." unique_id=140725614]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadSongHBox" type="HBoxContainer" parent="MainControl" unique_id=556073422]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 0
+offset_right = 324.0
+offset_bottom = 40.0
+
+[node name="LoadButton" type="Button" parent="MainControl/LoadSongHBox" unique_id=1733002532]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_74jum")
+text = "Load Song"
+
+[node name="CurrentSongLabel" type="Label" parent="MainControl/LoadSongHBox" unique_id=1156185120]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Current song: "
+
+[node name="PlayButton" type="Button" parent="MainControl" unique_id=909156174]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_top = 50.0
+offset_right = 120.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_74jum")
+text = "Play Song"
+
+[node name="Cursor" type="Area2D" parent="MainControl" unique_id=1769164578]
+position = Vector2(176, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainControl/Cursor" unique_id=1664472019]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vrpol")
+
+[node name="SpawnPoint" type="Area2D" parent="MainControl" unique_id=1173662288]
+position = Vector2(976, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainControl/SpawnPoint" unique_id=856711318]
+shape = SubResource("CapsuleShape2D_g86js")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=149639758]
+oversampling_override = 1.0
+title = "Open a File"
+position = Vector2i(0, 36)
+file_mode = 0
+access = 1
+
+[node name="ClearArea" type="Area2D" parent="." unique_id=1862242290]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClearArea" unique_id=1645766656]
+position = Vector2(-50, 324)
+shape = SubResource("RectangleShape2D_bfgn8")
+
+[node name="ScrollingNote" type="Area2D" parent="." unique_id=344795105]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollingNote" unique_id=1936974832]
+position = Vector2(576, 324)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_bfgn8")
+
+[connection signal="timeout" from="MeasureTimer" to="." method="_on_measure_timer_timeout"]
+[connection signal="button_down" from="MainControl/LoadSongHBox/LoadButton" to="." method="_on_load_button_button_down"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="body_entered" from="ClearArea" to="." method="_on_clear_area_body_entered"]

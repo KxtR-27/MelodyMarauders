@@ -201,17 +201,22 @@ func _save_song_resource() -> void:
 
 
 func _load_song_resource(song_to_load : Song) -> void:
+	#clear everything
 	measures.clear()
 	current_note_track.clear()
 	playback_queue.clear()
 	
+	#update tempo
 	current_tempo = song_to_load.tempo
+	
+	#update the tempo display in the sequencer
 	var tempo_field : IncrementableField = $Main/SongInformation/SongInformationContainer/TempoField
 	var tempo_edit_field : LineEdit = tempo_field.get_node("LineEdit")
 	tempo_edit_field.text = str(current_tempo)
 	tempo_field.current_value = current_tempo
 	var tracks : Array = track_container.get_children()
 	
+	#deactivate all buttons
 	for track : SequencingTrack in tracks:
 		for button_index : int in track.beat_buttons.keys():
 			var beat_button : BeatButton = track.beat_buttons[button_index]
@@ -219,6 +224,7 @@ func _load_song_resource(song_to_load : Song) -> void:
 				BeatButton.BUTTON_STATE.INACTIVE
 			)
 	
+	#update each button in the sequencer
 	for measure_index : int in song_to_load.measures.keys():
 		var loaded_measure : Measure = song_to_load.measures[measure_index]
 		for note_index : int in loaded_measure.notes.keys():

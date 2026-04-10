@@ -6,12 +6,12 @@ var beat_buttons : Dictionary = {}
 var last_note : SequencerNote
 
 func populate_beat_buttons(total_measures : int) -> void:
-	var total_buttons = total_measures * 16
+	var total_buttons : int = total_measures * 16
 	var buttons_until_separator : int = 4
 	var buttons_until_new_measure : int = 16
 	
 	for i in range(total_buttons):
-		var new_button = BUTTON_SCENE.instantiate()
+		var new_button : BeatButton = BUTTON_SCENE.instantiate()
 		$ButtonContainer.add_child(new_button)
 		new_button.instrument = instrument
 		new_button.measure = 1 + floori( i / 16 )
@@ -20,20 +20,21 @@ func populate_beat_buttons(total_measures : int) -> void:
 		beat_buttons[i] = new_button
 		
 		if ((i + 1) % buttons_until_separator == 0):
-			var new_separator = VSeparator.new()
+			var new_separator : VSeparator = VSeparator.new()
 			$ButtonContainer.add_child(new_separator)
 		
+		var measure_label : Label = new_button.get_node("MeasureLabel")
 		if (i % buttons_until_new_measure == 0):
-			new_button.get_node("MeasureLabel").text = "Measure " + str(new_button.measure)
+			measure_label.text = "Measure " + str(new_button.measure)
 		else:
-			new_button.get_node("MeasureLabel").text = ""
+			measure_label.text = ""
 
 
 func get_notes(starting_measure : int) -> Array:
 	last_note = null
 	var end_point : int = beat_buttons.size()
 	var start_point : int = (starting_measure - 1) * 16
-	var notes = []
+	var notes : Array = []
 	
 	for i in range(start_point, end_point):
 		var beat_button : BeatButton = beat_buttons[i]
