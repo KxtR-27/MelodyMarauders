@@ -1,18 +1,26 @@
 extends Control
 
-signal attack_enemy(damage: float) 
+signal attack_enemy(damage: float)
+signal mana_changed(player_who_lost_mana: Player)
 
-@onready var action_list: HBoxContainer = $Action_list
-@onready var note: Button = $Action_list/Note
-@onready var note_list: Panel = $Note_list_panel
 @export var midnight_sonata: Button
 @export var concierto_for_triangle: Button
 @export var in_bleak_midwinter: Button
 @export var move_description: Label
 @export var dmg: Label
 @export var mp: Label
-var currently_selected_move: move_attack = null
+@export var player1: Player
+@export var player2: Player
 @export var move_list: Dictionary[String, move_attack]
+
+var currently_selected_move: move_attack = null
+
+
+
+@onready var action_list: HBoxContainer = $Action_list
+@onready var note: Button = $Action_list/Note
+@onready var note_list: Panel = $Note_list_panel
+@onready var currently_selected_player: Player = player1
 
 
 
@@ -33,8 +41,15 @@ func _process(_delta: float) -> void:
 		note.grab_focus.call_deferred()
 
 	if note_list.visible and Input.is_action_just_pressed("ui_accept"):
-		print("I would be attacking right now")
+		print("the mana of move used is " + str(currently_selected_move.mana_value))
+		print("The mana the currently selected player has is" + str(currently_selected_player.mana))
+		if (currently_selected_move.mana_value > currently_selected_player.mana):
+			return
+		currently_selected_player.mana -= currently_selected_move.mana_value
+		mana_changed.emit(currently_selected_player)
 		attack_enemy.emit(currently_selected_move.DMG)
+
+
 
 
 
