@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://uhsnmxsqn237"]
 
 [ext_resource type="Texture2D" uid="uid://3wy3bm3yh6mm" path="res://assets/icon.svg" id="1_f1p1p"]
-[ext_resource type="Script" path="res://scripts/ui_mix.gd" id="1_hngcd"]
+[ext_resource type="Script" uid="uid://cqa7sm8fb4waa" path="res://scripts/ui_mix.gd" id="1_hngcd"]
+[ext_resource type="Script" uid="uid://btxh0ktbyasvb" path="res://scripts/state_machine.gd" id="2_1coue"]
 [ext_resource type="PackedScene" uid="uid://66uyqv601b5e" path="res://scenes/hpmpbar.tscn" id="2_g847m"]
 [ext_resource type="Texture2D" uid="uid://bj4c3g5fypha1" path="res://assets/icons/fire.png" id="2_hngcd"]
 [ext_resource type="Script" uid="uid://cly32xdhxjht8" path="res://scripts/h_pvalue.gd" id="2_n5p3v"]
@@ -21,6 +22,9 @@
 
 [node name="UiMix" type="Node2D" unique_id=195094249]
 script = ExtResource("1_hngcd")
+
+[node name="StateMachine" type="Node" parent="." unique_id=74671769]
+script = ExtResource("2_1coue")
 
 [node name="Player1HPMP" parent="." unique_id=1726576926 node_paths=PackedStringArray("bar_owner") instance=ExtResource("2_g847m")]
 bar_owner = NodePath("../Player1")
