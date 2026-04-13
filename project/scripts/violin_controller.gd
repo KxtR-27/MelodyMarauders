@@ -11,7 +11,6 @@ static var open_notes_map: Dictionary[String, Note] = {
 }
 
 static var finger_position_values: Dictionary[String, int] = {
-	"open": 0,
 	"violin_finger_first": 2,
 	"violin_finger_second": 4,
 	"violin_finger_third": 5,
@@ -50,7 +49,7 @@ func _update_current_open_note() -> void:
 			holding_finger = true
 	
 	if not holding_finger: 
-		current_finger_position = finger_position_values.get("open")
+		current_finger_position = 0
 	
 	for open_input: String in open_notes_map.keys():
 		if Input.is_action_just_pressed(open_input):

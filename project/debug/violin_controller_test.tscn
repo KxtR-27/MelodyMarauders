@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://h0iixqg2ivqe" path="res://debug/gamepad_display.tscn" id="1_rhf2l"]
 [ext_resource type="Script" uid="uid://buvlvj5e5cwdo" path="res://debug/violin_state_display.gd" id="2_uf301"]
 [ext_resource type="PackedScene" uid="uid://bik1lfv0tm6du" path="res://components/violin_controller.tscn" id="3_b270q"]
+[ext_resource type="Texture2D" uid="uid://cks2wvcanvsbp" path="res://assets/Violin.webp" id="3_rhf2l"]
 [ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="4_b270q"]
 
 [sub_resource type="Resource" id="Resource_rhf2l"]
@@ -38,15 +39,44 @@ scale = Vector2(2.1463995, 2.1463995)
 
 [node name="ViolinStateDisplay" type="Label" parent="CanvasLayer/Control" unique_id=1832991004 node_paths=PackedStringArray("violin")]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 170.0
-offset_right = 689.0
-offset_bottom = 245.0
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 267.0
+offset_bottom = 97.0
 text = "Play a down bow!
-Note 24 (293.636071837732 Hz)
+Current string: violin_open_d
 Finger position: open"
 script = ExtResource("2_uf301")
 violin = NodePath("../../../ViolinController")
+
+[node name="ControlsLabel" type="Label" parent="CanvasLayer/Control" unique_id=1573968776]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 169.0
+offset_right = 539.0
+offset_bottom = 608.0
+text = "- Tapping a face button changes the string.
+   (You don't have to hold it)
+- Holding a trigger or bumper changes the finger 
+   position. Holding no position plays an open string.
+   (You DO have to hold it)
+- Depending on the last bow direction, tilt the left stick up or down,
+   You can also use up and down on the DPad for this.
+
+Bottom Face Button: G string
+Left Face Button: D string
+Right Face Button: A string
+Top Face Button: E string
+
+Left Trigger: 1st finger
+Left Bumper: 2nd finger
+Right Trigger: 3rd finger
+Right Bumper: 4th finger"
+
+[node name="Violin" type="Sprite2D" parent="CanvasLayer" unique_id=807142097]
+position = Vector2(857, 389.00003)
+scale = Vector2(0.637255, 0.6372549)
+texture = ExtResource("3_rhf2l")
 
 [node name="ViolinController" parent="." unique_id=686884029 instance=ExtResource("3_b270q")]
 current_open_note = SubResource("Resource_rhf2l")

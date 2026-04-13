@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1fd07fkrjmht" path="res://assets/Trumpet-Fingering-Chart.png" id="3_dyvmd"]
 [ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="5_rbvpu"]
 
-[sub_resource type="Resource" id="Resource_5eqwj"]
+[sub_resource type="Resource" id="Resource_rbvpu"]
 script = ExtResource("5_rbvpu")
 debug_frequency = 261.6
 
@@ -21,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="GamepadDisplay" parent="CanvasLayer/Control" unique_id=1147803843 instance=ExtResource("1_ald8e")]
 layout_mode = 1
@@ -43,10 +44,32 @@ offset_right = 244.0
 offset_bottom = 120.0
 trumpet = NodePath("../../../TrumpetController")
 
+[node name="ControlsLabel" type="Label" parent="CanvasLayer/Control" unique_id=1752083019]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 178.0
+offset_right = 786.0
+offset_bottom = 409.0
+text = "- Hold a face button to play a 
+   sustained note in an wthin an embouchure column.
+- Hold one or more valves according 
+   to the fingering chart using Triggers and Bumper,
+   which changes the embouchure row.
+
+No Face Button: 1st column in embouchure row
+Bottom Face Button: 2nd column in embouchure row
+Left Face Button: 3rd column in embouchure row
+Right Face Button: 4th column in embouchure row
+
+Left Trigger: Valve 1 ●○○
+Right Trigger: Valve 2 ○●○
+Right Bumper: Valve 3 ○○●"
+
 [node name="TrumpetFingeringChart" type="Sprite2D" parent="CanvasLayer" unique_id=21867228]
 position = Vector2(154, 341)
 scale = Vector2(0.26891616, 0.26891613)
 texture = ExtResource("3_dyvmd")
 
 [node name="TrumpetController" parent="." unique_id=581634359 instance=ExtResource("2_augbh")]
-current_note = SubResource("Resource_5eqwj")
+current_note = SubResource("Resource_rbvpu")
+accepting_input = true
