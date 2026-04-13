@@ -12,9 +12,12 @@ bg_color = Color(0.25882354, 0.33333334, 0.88235295, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfgn8"]
 size = Vector2(20, 648)
 
-[node name="ScrollingStaffGenerator" type="Node2D" unique_id=215309787 node_paths=PackedStringArray("spawner")]
+[node name="ScrollingStaffGenerator" type="Node2D" unique_id=215309787 node_paths=PackedStringArray("spawner", "measure_timer", "cursor", "amy_manager")]
 script = ExtResource("1_5b86b")
 spawner = NodePath("MainControl/Spawner")
+measure_timer = NodePath("MeasureTimer")
+cursor = NodePath("MainControl/Cursor")
+amy_manager = NodePath("AmyManager")
 
 [node name="AmyManager" type="Node" parent="." unique_id=2086110837]
 script = ExtResource("2_c2h7a")

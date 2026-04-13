@@ -8,20 +8,44 @@ class_name ScrollingStaffGenerator extends Node2D
 @export var song : Song
 
 @export var current_track : Array = []
+@export var playback_queue : Array = []
+@export var measures : Dictionary = {}
 
 @export var spawner : ScrollingNoteSpawner
+@export var measure_timer : Timer
+@export var cursor : Area2D
 
 @export var amy_manager : AmyManager
 
 
 func _create_song(new_song : Song) -> void:
 	print("creating song")
+	spawner.position.x = cursor.position.x + (scroll_speed * 2)
 	for measure_index : int in new_song.measures.keys():
 		var loaded_measure : Measure = new_song.measures[measure_index]
+		measures[measure_index] = loaded_measure
 		for note_index : int in loaded_measure.notes.keys():
 			var current_note : SequencerNote = loaded_measure.notes[note_index]
 			if current_note.instrument == current_instrument:
 				current_track.push_back(current_note)
+
+
+func _play_next_measure() -> void:
+	if playback_queue.is_empty():
+		return
+	
+	var notes_to_play : Array = []
+	var frontmost_measure : Measure = playback_queue[0]
+	for note_index : int in frontmost_measure.notes.keys():
+		var note : SequencerNote = frontmost_measure.notes[note_index]
+		if note.instrument != current_instrument:
+			notes_to_play.append(note)
+	
+	playback_queue.pop_front()
+	
+	_spawn_measure(measure)
+	amy_manager.play_notes_in_array(notes_to_play, tempo, 1000)
+	measure += 1
 
 
 func _spawn_measure(measure_num : int) -> void:
@@ -38,7 +62,6 @@ func _spawn_measure(measure_num : int) -> void:
 				else:
 					mismatch = true
 	else:
-		var measure_timer : Timer = $MeasureTimer
 		measure_timer.stop()
 	
 	if not notes_to_spawn.is_empty():
@@ -47,12 +70,17 @@ func _spawn_measure(measure_num : int) -> void:
 
 
 func _play_song() -> void:
-	measure = 0
-	_spawn_measure(0)
-	measure += 1
-	print("playing song")
+	playback_queue.clear()
 	
-	var measure_timer : Timer = $MeasureTimer
+	for measure_index : int in measures.keys():
+		playback_queue.push_back(measures[measure_index])
+	
+	measure = 1
+	measure_timer.wait_time = (60.0 / tempo) * 4
+	
+	amy_manager.playback_start_time_ms = Time.get_ticks_msec()
+	_play_next_measure()
+	print("playing song")
 	measure_timer.start()
 
 
@@ -80,8 +108,7 @@ func _on_file_dialog_file_selected(path: String) -> void:
 
 
 func _on_measure_timer_timeout() -> void:
-	_spawn_measure(measure)
-	measure += 1
+	_play_next_measure()
 	print("timeout")
 
 

@@ -125,7 +125,7 @@ func _play_next_measure() -> void:
 		notes_to_play.append(frontmost_measure.notes[note])
 	
 	playback_queue.pop_front()
-	amy_manager.play_notes_in_array(notes_to_play, current_tempo)
+	amy_manager.play_notes_in_array(notes_to_play, current_tempo, 0)
 
 
 func _on_test_audio_button_button_down() -> void:

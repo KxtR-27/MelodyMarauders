@@ -61,7 +61,7 @@ func _ready() -> void:
 		instrument_ids[patch] = current_id
 		current_patch_offset += 1
 
-func play_note(note : SequencerNote, tempo : int) -> void:
+func play_note(note : SequencerNote, tempo : int, added_delay_ms : int) -> void:
 	#obtain midi note for the note's pitch
 	var midi_note : int = pitch_offsets[note.pitch_name] + STARTING_PITCH_OFFSET
 	midi_note += (note.octave * 12)
@@ -79,8 +79,10 @@ func play_note(note : SequencerNote, tempo : int) -> void:
 	var sustain_sec : float = note.length * pulse 
 	var measure_added_delay : int = ((pulse * 4) * (note.measure - 1)) * 1000
 	var start_delay_sec : float = ((note.beat - 1) * pulse)
-	var start_delay_ms : int = playback_start_time_ms + measure_added_delay + int(start_delay_sec * 1000.0) #amy calculates delay in ms
-	var end_time_ms : int = playback_start_time_ms + measure_added_delay + int((start_delay_sec + sustain_sec) * 1000.0)
+	var start_delay_ms : int = \
+	added_delay_ms + playback_start_time_ms + measure_added_delay + int(start_delay_sec * 1000.0) #amy calculates delay in ms
+	var end_time_ms : int = \
+	added_delay_ms + playback_start_time_ms + measure_added_delay + int((start_delay_sec + sustain_sec) * 1000.0)
 	amy.send({
 		"synth" : instrument_ids[note.instrument], 
 		"note" : midi_note, 
@@ -96,6 +98,6 @@ func play_note(note : SequencerNote, tempo : int) -> void:
 	})
 
 
-func play_notes_in_array(array : Array, tempo : int) -> void:
+func play_notes_in_array(array : Array, tempo : int, added_delay_ms : int) -> void:
 	for note : SequencerNote in array:
-		play_note(note, tempo)
+		play_note(note, tempo, added_delay_ms)
