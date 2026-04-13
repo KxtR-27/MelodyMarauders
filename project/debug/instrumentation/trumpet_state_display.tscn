@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bldegub3cq0s4"]
+[gd_scene format=3 uid="uid://deqkg5lofbv6w"]
 
-[ext_resource type="Script" uid="uid://dobkrw4vlqa0x" path="res://debug/trumpet_state_display.gd" id="1_nwtpi"]
+[ext_resource type="Script" uid="uid://dotgjuvhj6t7i" path="res://debug/instrumentation/trumpet_state_display.gd" id="1_jkvkr"]
 
 [sub_resource type="FontFile" id="FontFile_nwtpi"]
 cache/0/variation_coordinates = {}
@@ -24,7 +24,7 @@ font = SubResource("FontFile_nwtpi")
 [node name="TrumpetStateDisplay" type="VBoxContainer" unique_id=1305054478]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_nwtpi")
+script = ExtResource("1_jkvkr")
 
 [node name="InfoLabel" type="Label" parent="." unique_id=1322382328]
 layout_mode = 2

@@ -3,29 +3,29 @@ class_name Note
 extends Resource
 
 
-enum Notes {
-	C = 0,
-	C_SHARP = 1, 
-	D_FLAT = 1,
-	D = 2,
-	D_SHARP = 3, 
-	E_FLAT = 3,
-	E = 4,
-	F = 5,
-	F_SHARP = 6,
-	G_FLAT = 6,
-	G = 7,
-	G_SHARP = 8,
-	A_FLAT = 8,
-	A = 9,
-	A_SHARP = 10,
-	B_FLAT = 10,
-	B = 11,
+static var Notes: Dictionary[String, int] = {
+	"C" = 0,
+	"C#" = 1, 
+	"Db" = 1,
+	"D" = 2,
+	"D#" = 3, 
+	"Eb" = 3,
+	"E" = 4,
+	"F" = 5,
+	"F#" = 6,
+	"G_FLAT" = 6,
+	"G" = 7,
+	"G_SHARP" = 8,
+	"A_FLAT" = 8,
+	"A" = 9,
+	"A_SHARP" = 10,
+	"B_FLAT" = 10,
+	"B" = 11,
 }
 
 static var starting_frequency := 16.35 # C0
 
-@export var note: Notes = Notes.C:
+@export var note := Notes["C"]:
 	set(new_note):
 		note = new_note
 		debug_frequency = self.get_frequency()
@@ -40,14 +40,14 @@ static var starting_frequency := 16.35 # C0
 @export var debug_frequency: float
 
 
-func _init(n: Notes = Notes.C, o: int = 4, s: float = 1.0) -> void:
+func _init(n := Notes["C"], o: int = 4, s: float = 1.0) -> void:
 	self.note = n
 	self.octave = o
 	self.sustain = s
 
 
 func _to_string() -> String:
-	return "Note %s%d (%s Hz)" % [note, octave, get_frequency()]
+	return "Note %s%d (%.2f Hz)" % [Notes.find_key(note), octave, get_frequency()]
 
 
 func get_frequency() -> float:

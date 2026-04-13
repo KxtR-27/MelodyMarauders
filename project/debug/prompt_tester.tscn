@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://cm0fbfbcy7fdt"]
-
-[ext_resource type="Script" uid="uid://b1peafj0uu83i" path="res://debug/prompt_tester.gd" id="1_5rfcr"]
-
-[node name="PromptTester" type="Node2D" unique_id=2003139595]
-script = ExtResource("1_5rfcr")

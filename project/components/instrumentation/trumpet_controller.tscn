@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c8d2apb5qgdo3"]
+
+[ext_resource type="Script" uid="uid://sk1nh4ufehee" path="res://scripts/instrumentation/trumpet_controller.gd" id="1_u1c0u"]
+[ext_resource type="PackedScene" uid="uid://b8oshqqt0r58n" path="res://components/instrumentation/note_player.tscn" id="2_fv1tc"]
+
+[node name="TrumpetController" type="Node" unique_id=581634359]
+script = ExtResource("1_u1c0u")
+
+[node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("2_fv1tc")]

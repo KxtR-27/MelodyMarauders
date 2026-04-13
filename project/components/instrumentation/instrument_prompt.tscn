@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://docqjdrbslayq"]
+[gd_scene format=3 uid="uid://c5kuj7xmn5osh"]
 
-[ext_resource type="Script" uid="uid://mn1r20qmp1qc" path="res://scripts/instrument_prompt.gd" id="1_tknav"]
+[ext_resource type="Script" uid="uid://eydjacmcxbtl" path="res://scripts/instrumentation/instrument_prompt.gd" id="1_621bh"]
 
 [node name="InstrumentPrompt" type="Control" unique_id=1657460300]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_tknav")
+script = ExtResource("1_621bh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1021732886]
 layout_mode = 0

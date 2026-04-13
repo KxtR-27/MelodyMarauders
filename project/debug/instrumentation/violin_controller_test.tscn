@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://co1gr388dbkcu"]
+[gd_scene format=3 uid="uid://cvm7cm2rmrbhh"]
 
-[ext_resource type="PackedScene" uid="uid://h0iixqg2ivqe" path="res://debug/gamepad_display.tscn" id="1_rhf2l"]
-[ext_resource type="Script" uid="uid://buvlvj5e5cwdo" path="res://debug/violin_state_display.gd" id="2_uf301"]
-[ext_resource type="PackedScene" uid="uid://bik1lfv0tm6du" path="res://components/violin_controller.tscn" id="3_b270q"]
-[ext_resource type="Texture2D" uid="uid://cks2wvcanvsbp" path="res://assets/Violin.webp" id="3_rhf2l"]
-[ext_resource type="Script" uid="uid://dadxpfiqnn274" path="res://scripts/note_player/note.gd" id="4_b270q"]
+[ext_resource type="PackedScene" uid="uid://bn7bhuq3xs6fr" path="res://debug/gamepad_display.tscn" id="1_lte0l"]
+[ext_resource type="Script" uid="uid://6enbn16kt2k2" path="res://debug/instrumentation/violin_state_display.gd" id="2_167ui"]
+[ext_resource type="Texture2D" uid="uid://cks2wvcanvsbp" path="res://assets/Violin.webp" id="3_1fl2h"]
+[ext_resource type="PackedScene" uid="uid://dia0q641f0t7i" path="res://components/instrumentation/violin_controller.tscn" id="4_u4vmw"]
+[ext_resource type="Script" uid="uid://cgcp8p6xcuqem" path="res://scripts/instrumentation/note.gd" id="5_saxxb"]
 
 [sub_resource type="Resource" id="Resource_rhf2l"]
-script = ExtResource("4_b270q")
+script = ExtResource("5_saxxb")
 note = 2
 sustain = 0.5
 debug_frequency = 293.636071837732
@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="GamepadDisplay" parent="CanvasLayer/Control" unique_id=1147803843 instance=ExtResource("1_rhf2l")]
+[node name="GamepadDisplay" parent="CanvasLayer/Control" unique_id=1147803843 instance=ExtResource("1_lte0l")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,9 +45,9 @@ offset_top = 22.0
 offset_right = 267.0
 offset_bottom = 97.0
 text = "Play a down bow!
-Current string: violin_open_d
+Current string: <null>
 Finger position: open"
-script = ExtResource("2_uf301")
+script = ExtResource("2_167ui")
 violin = NodePath("../../../ViolinController")
 
 [node name="ControlsLabel" type="Label" parent="CanvasLayer/Control" unique_id=1573968776]
@@ -77,7 +77,7 @@ Right Bumper: 4th finger"
 [node name="Violin" type="Sprite2D" parent="CanvasLayer" unique_id=807142097]
 position = Vector2(857, 389.00003)
 scale = Vector2(0.637255, 0.6372549)
-texture = ExtResource("3_rhf2l")
+texture = ExtResource("3_1fl2h")
 
-[node name="ViolinController" parent="." unique_id=686884029 instance=ExtResource("3_b270q")]
+[node name="ViolinController" parent="." unique_id=686884029 instance=ExtResource("4_u4vmw")]
 current_open_note = SubResource("Resource_rhf2l")

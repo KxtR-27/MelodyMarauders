@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 	if hit_occurred:
 		print("note played!")
 		last_bow_dir_was_up = not last_bow_dir_was_up
-		note_player.play_note(current_open_note.bend(current_finger_position), NoteSequence.Waves.SAW_DOWN)
+		note_player.play_note(current_open_note.bend(current_finger_position), NotePlayer.Waves.SAW_DOWN)
 
 
 func _update_current_open_note() -> void:
