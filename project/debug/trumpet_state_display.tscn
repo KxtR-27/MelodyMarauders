@@ -2,6 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dobkrw4vlqa0x" path="res://debug/trumpet_state_display.gd" id="1_nwtpi"]
 
+[sub_resource type="FontFile" id="FontFile_nwtpi"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_rbq3s"]
+font = SubResource("FontFile_nwtpi")
+
 [node name="TrumpetStateDisplay" type="VBoxContainer" unique_id=1305054478]
 offset_right = 40.0
 offset_bottom = 40.0
@@ -10,3 +29,4 @@ script = ExtResource("1_nwtpi")
 [node name="InfoLabel" type="Label" parent="." unique_id=1322382328]
 layout_mode = 2
 text = "await trumpet connection..."
+label_settings = SubResource("LabelSettings_rbq3s")

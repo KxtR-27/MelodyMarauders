@@ -23,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="GamepadDisplay" parent="CanvasLayer/Control" unique_id=1147803843 instance=ExtResource("1_rhf2l")]
 layout_mode = 1
