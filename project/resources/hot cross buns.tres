@@ -1,0 +1,284 @@
+[gd_resource type="Resource" script_class="Song" format=3]
+
+[ext_resource type="Script" path="res://scripts/sequencer/sequencer_note.gd" id="1_s8vhg"]
+[ext_resource type="Script" path="res://scripts/sequencer/measure.gd" id="2_qp0st"]
+[ext_resource type="Script" path="res://scripts/sequencer/song.gd" id="3_liq21"]
+
+[sub_resource type="Resource" id="Resource_06ah2"]
+script = ExtResource("1_s8vhg")
+pitch_name = "E"
+accidental = "natural"
+octave = 4
+measure = 1
+beat = 1.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_w4itl"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 1
+beat = 2.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_vtncf"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 1
+beat = 3.0
+length = 1.0
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_cdqt1"]
+script = ExtResource("2_qp0st")
+notes = {
+0: SubResource("Resource_06ah2"),
+1: SubResource("Resource_w4itl"),
+2: SubResource("Resource_vtncf")
+}
+
+[sub_resource type="Resource" id="Resource_otfht"]
+script = ExtResource("1_s8vhg")
+pitch_name = "E"
+accidental = "natural"
+octave = 4
+measure = 2
+beat = 1.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_4v8ey"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 2
+beat = 2.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_ro4ce"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 2
+beat = 3.0
+length = 1.0
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_5xci0"]
+script = ExtResource("2_qp0st")
+measure_number = 2
+notes = {
+0: SubResource("Resource_otfht"),
+1: SubResource("Resource_4v8ey"),
+2: SubResource("Resource_ro4ce")
+}
+
+[sub_resource type="Resource" id="Resource_uigw1"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 1.0
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_h1stu"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 1.5
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_tl1l7"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 2.0
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_77v3x"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 2.5
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_faeou"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 3.0
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_jk14l"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 3.5
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_30qdk"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 4.0
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_wju23"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 3
+beat = 4.5
+length = 0.25
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_uh7xn"]
+script = ExtResource("2_qp0st")
+measure_number = 3
+notes = {
+0: SubResource("Resource_uigw1"),
+1: SubResource("Resource_h1stu"),
+2: SubResource("Resource_tl1l7"),
+3: SubResource("Resource_77v3x"),
+4: SubResource("Resource_faeou"),
+5: SubResource("Resource_jk14l"),
+6: SubResource("Resource_30qdk"),
+7: SubResource("Resource_wju23")
+}
+
+[sub_resource type="Resource" id="Resource_ynuf6"]
+script = ExtResource("1_s8vhg")
+pitch_name = "E"
+accidental = "natural"
+octave = 4
+measure = 4
+beat = 1.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_i3s4n"]
+script = ExtResource("1_s8vhg")
+pitch_name = "D"
+accidental = "natural"
+octave = 4
+measure = 4
+beat = 2.0
+length = 0.5
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_usnkr"]
+script = ExtResource("1_s8vhg")
+pitch_name = "C"
+accidental = "natural"
+octave = 4
+measure = 4
+beat = 3.0
+length = 1.0
+instrument = "Sine"
+
+[sub_resource type="Resource" id="Resource_6nfd0"]
+script = ExtResource("2_qp0st")
+measure_number = 4
+notes = {
+0: SubResource("Resource_ynuf6"),
+1: SubResource("Resource_i3s4n"),
+2: SubResource("Resource_usnkr")
+}
+
+[sub_resource type="Resource" id="Resource_rq1wy"]
+script = ExtResource("2_qp0st")
+measure_number = 5
+
+[sub_resource type="Resource" id="Resource_w83th"]
+script = ExtResource("2_qp0st")
+measure_number = 6
+
+[sub_resource type="Resource" id="Resource_0tojl"]
+script = ExtResource("2_qp0st")
+measure_number = 7
+
+[sub_resource type="Resource" id="Resource_cyra2"]
+script = ExtResource("2_qp0st")
+measure_number = 8
+
+[sub_resource type="Resource" id="Resource_dr6ac"]
+script = ExtResource("2_qp0st")
+measure_number = 9
+
+[sub_resource type="Resource" id="Resource_r6qj4"]
+script = ExtResource("2_qp0st")
+measure_number = 10
+
+[sub_resource type="Resource" id="Resource_3j1em"]
+script = ExtResource("2_qp0st")
+measure_number = 11
+
+[sub_resource type="Resource" id="Resource_8apb5"]
+script = ExtResource("2_qp0st")
+measure_number = 12
+
+[sub_resource type="Resource" id="Resource_ovc21"]
+script = ExtResource("2_qp0st")
+measure_number = 13
+
+[sub_resource type="Resource" id="Resource_xv0s5"]
+script = ExtResource("2_qp0st")
+measure_number = 14
+
+[sub_resource type="Resource" id="Resource_kfd7q"]
+script = ExtResource("2_qp0st")
+measure_number = 15
+
+[sub_resource type="Resource" id="Resource_l7lw4"]
+script = ExtResource("2_qp0st")
+measure_number = 16
+
+[resource]
+script = ExtResource("3_liq21")
+measures = {
+1: SubResource("Resource_cdqt1"),
+2: SubResource("Resource_5xci0"),
+3: SubResource("Resource_uh7xn"),
+4: SubResource("Resource_6nfd0"),
+5: SubResource("Resource_rq1wy"),
+6: SubResource("Resource_w83th"),
+7: SubResource("Resource_0tojl"),
+8: SubResource("Resource_cyra2"),
+9: SubResource("Resource_dr6ac"),
+10: SubResource("Resource_r6qj4"),
+11: SubResource("Resource_3j1em"),
+12: SubResource("Resource_8apb5"),
+13: SubResource("Resource_ovc21"),
+14: SubResource("Resource_xv0s5"),
+15: SubResource("Resource_kfd7q"),
+16: SubResource("Resource_l7lw4")
+}
