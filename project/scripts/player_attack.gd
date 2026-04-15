@@ -5,10 +5,16 @@ class_name PlayerAttack
 
 
 func Enter() -> void:
+	print("I am in the PlayerAttack STate right now")
+	batNavMenu.visible = true
+	batNavMenu.reset_battle_menu()
 	batNavMenu.can_interact = true
-	
+	batNavMenu.currently_selected_player = batNavMenu.player1
+
 func Exit() -> void:
-	pass
+	batNavMenu.visible = false
+	batNavMenu.currently_selected_player = null
+	
 
 func Update(_delta: float) -> void:
 	if batNavMenu.note_list.visible and Input.is_action_just_pressed("ui_cancel"):
@@ -23,16 +29,16 @@ func Update(_delta: float) -> void:
 			return
 		batNavMenu.currently_selected_player.mana -= batNavMenu.currently_selected_move.mana_value
 		batNavMenu.mana_changed.emit(batNavMenu.currently_selected_player)
+
 		batNavMenu.attack_enemy.emit(batNavMenu.currently_selected_move.DMG)
 		batNavMenu.note_list.visible = false
 		
 		if batNavMenu.currently_selected_player == batNavMenu.player1:
 			batNavMenu.currently_selected_player = batNavMenu.player2
 			batNavMenu.reset_battle_menu()
-		else:
-			batNavMenu.reset_battle_menu()
-			batNavMenu.can_interact = false
-			Transitioned.emit(self, "bossattack")
+			return
+		elif batNavMenu.currently_selected_player == batNavMenu.player2:
+			self.Transitioned.emit(self, "BossAttack")
 
 
 func Physics_Update(_delta: float) -> void:

@@ -14,7 +14,9 @@ signal mana_changed(player_who_lost_mana: Player)
 @export var player2: Player
 @export var move_list: Dictionary[String, move_attack]
 @export var enemy: Enemy
-
+@export var note_list: Panel
+@export var action_list: HBoxContainer
+@export var note: Button
 var currently_selected_move: move_attack = null
 var can_interact: bool = false
 
@@ -22,9 +24,8 @@ var can_interact: bool = false
 
 
 
-@onready var action_list: HBoxContainer = $Action_list
-@onready var note: Button = $Action_list/Note
-@onready var note_list: Panel = $Note_list_panel
+
+
 @onready var note_selection: VBoxContainer = $Note_list_panel/Note_selection
 var currently_selected_player: Player = null
 
