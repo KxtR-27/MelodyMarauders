@@ -45,7 +45,8 @@ func create_song(new_song : Song) -> void:
 		for note_index : int in loaded_measure.notes.keys():
 			var note_at_index : SequencerNote = loaded_measure.notes[note_index]
 			if note_at_index.instrument == current_instrument:
-				current_track.push_back(current_note)
+				current_track.push_back(note_at_index)
+				print("note added")
 
 
 func _play_next_measure() -> void:
