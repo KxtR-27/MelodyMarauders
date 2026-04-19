@@ -31,17 +31,22 @@ func deal_random_damage(min_damage: float, max_damage: float) -> float:
 
 
 
-func attack_player() -> void:
+func attack_player(damage : int) -> void:
 	var target: Player = get_random_player()
 	if target == null:
 		print("No valid targets")
 		return
 	
-	var damage := int(deal_random_damage(1, 5))
 	print("Boss attacks ", target.name, " for ", damage, " damage!")
 	
 	target.take_damage(damage)
 
+
+
+func generate_attack() -> int:
+	var damage := int(deal_random_damage(1, 5))
+	
+	return damage
 
 # Picks a random ALIVE player
 func get_random_player() -> Player:

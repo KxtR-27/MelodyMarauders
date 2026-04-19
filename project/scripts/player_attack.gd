@@ -93,6 +93,7 @@ func _use_sequencer() -> float:
 	ui_mix.get_node("Player1").visible = true
 	ui_mix.get_node("Player2").visible = true
 	ui_mix.get_node("Enemy").visible = true
+	ui_mix.get_node("BattleMenuNavigation").visible = true
 	
 	return accuracy
 	#return 1.00

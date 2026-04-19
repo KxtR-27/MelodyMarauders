@@ -82,4 +82,5 @@ func reset_battle_menu() -> void:
 
 func _on_run_pressed() -> void:
 	#This is just to test boss damage is working 
-	enemy.attack_player()
+	var damage : int = enemy.generate_attack()
+	enemy.attack_player(damage)
