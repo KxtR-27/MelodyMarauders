@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dtjw6bf6olj2q"]
+
+[ext_resource type="Script" path="res://debug/note_player_test.gd" id="1_wrfvy"]
+[ext_resource type="Script" path="res://scripts/note_player/note_player.gd" id="2_gwa4h"]
+[ext_resource type="Script" path="res://scripts/note_player/note.gd" id="4_p43c1"]
+[ext_resource type="Script" path="res://scripts/note_player/note_sequence.gd" id="4_wrfvy"]
+
+[sub_resource type="Resource" id="Resource_wrfvy"]
+script = ExtResource("4_p43c1")
+note = 2
+debug_frequency = 293.636071837732
+metadata/_custom_type_script = "uid://dadxpfiqnn274"
+
+[sub_resource type="Resource" id="Resource_gwa4h"]
+script = ExtResource("4_p43c1")
+note = 6
+debug_frequency = 369.95826791680173
+metadata/_custom_type_script = "uid://dadxpfiqnn274"
+
+[sub_resource type="Resource" id="Resource_besjf"]
+script = ExtResource("4_p43c1")
+note = 9
+debug_frequency = 439.95700446074346
+metadata/_custom_type_script = "uid://dadxpfiqnn274"
+
+[sub_resource type="Resource" id="Resource_p43c1"]
+script = ExtResource("4_p43c1")
+note = 2
+octave = 5
+debug_frequency = 587.272143675464
+metadata/_custom_type_script = "uid://dadxpfiqnn274"
+
+[sub_resource type="Resource" id="Resource_i2fcg"]
+script = ExtResource("4_wrfvy")
+notes = Array[ExtResource("4_p43c1")]([SubResource("Resource_wrfvy"), SubResource("Resource_gwa4h"), SubResource("Resource_besjf"), SubResource("Resource_p43c1")])
+metadata/_custom_type_script = "uid://bfm6u8oxwk240"
+
+[sub_resource type="Resource" id="Resource_5qfln"]
+script = ExtResource("4_p43c1")
+note = 2
+debug_frequency = 293.636071837732
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2fcg"]
+font_size = 32
+
+[node name="NotePlayerTest" type="Node2D" unique_id=2137940212]
+script = ExtResource("1_wrfvy")
+
+[node name="NotePlayer" type="Node" parent="." unique_id=1185869198]
+script = ExtResource("2_gwa4h")
+note_sequence = SubResource("Resource_i2fcg")
+mode = 1
+preview_waveform = 4
+preview_note = SubResource("Resource_5qfln")
+metadata/_custom_type_script = "uid://c1lj2miq62bkb"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1278385212]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1879641858]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1522653581]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -37.5
+offset_right = 37.0
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "↑ .... hit
+→ ... skip
+↓ .... extra"
+label_settings = SubResource("LabelSettings_i2fcg")
+metadata/_edit_use_anchors_ = true

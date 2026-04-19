@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dt45el28q3frv"]
+
+[ext_resource type="Script" path="res://scripts/trumpet_controller.gd" id="1_f8bww"]
+[ext_resource type="PackedScene" uid="uid://1dqyvv7psq52" path="res://components/note_player.tscn" id="1_xrsue"]
+[ext_resource type="Script" path="res://scripts/note_player/note.gd" id="2_f8bww"]
+
+[sub_resource type="Resource" id="Resource_f8bww"]
+script = ExtResource("2_f8bww")
+debug_frequency = 261.6
+
+[sub_resource type="Resource" id="Resource_wf2fb"]
+script = ExtResource("2_f8bww")
+note = 9
+debug_frequency = 439.95700446074346
+metadata/_custom_type_script = "uid://dadxpfiqnn274"
+
+[node name="TrumpetController" type="Node" unique_id=581634359]
+script = ExtResource("1_f8bww")
+current_note = SubResource("Resource_f8bww")
+
+[node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("1_xrsue")]
+preview_note = SubResource("Resource_wf2fb")

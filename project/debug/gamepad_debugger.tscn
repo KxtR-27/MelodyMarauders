@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cvj86jx7btp4t"]
+
+[node name="GamepadDebugger" type="Control" unique_id=1147803843]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 81.0
+offset_bottom = 69.0
