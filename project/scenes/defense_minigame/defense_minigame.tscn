@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://biy2wa06axetx"]
 
 [ext_resource type="Script" uid="uid://0qmbegoj81i0" path="res://scenes/defense_minigame/defense_minigame.gd" id="1_8dlb5"]
+[ext_resource type="FontFile" uid="uid://dqtpe5istaaw6" path="res://scenes/defense_minigame/PressStart2P-Regular.ttf" id="2_fyuav"]
 
 [node name="DefenseMinigame" type="Node2D" unique_id=1760020349]
 script = ExtResource("1_8dlb5")
@@ -24,6 +25,7 @@ grow_horizontal = 2
 
 [node name="InstructionsLabel" type="Label" parent="MainControl/TopVBox" unique_id=880987133]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fyuav")
 theme_override_font_sizes/font_size = 32
 text = "Construct the following chord!"
 horizontal_alignment = 1
@@ -31,6 +33,7 @@ horizontal_alignment = 1
 [node name="ChordLabel" type="Label" parent="MainControl/TopVBox" unique_id=300921892]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fyuav")
 theme_override_font_sizes/font_size = 32
 text = "Placeholder"
 horizontal_alignment = 1
@@ -62,6 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fyuav")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,6 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fyuav")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -92,6 +97,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_fyuav")
 theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
