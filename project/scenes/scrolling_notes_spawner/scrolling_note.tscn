@@ -1,15 +1,29 @@
 [gd_scene format=3 uid="uid://b8t2ptkostw87"]
 
 [ext_resource type="Script" uid="uid://whhpiyr6fqpp" path="res://scripts/scrolling_note_spawner/scrolling_note.gd" id="1_0q2mw"]
-[ext_resource type="Texture2D" uid="uid://3wy3bm3yh6mm" path="res://assets/icon.svg" id="2_od756"]
+[ext_resource type="Texture2D" uid="uid://q3tmo3jg8c7j" path="res://scenes/scrolling_notes_spawner/note_icon.png" id="2_od756"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bfgn8"]
 
 [node name="ScrollingNote" type="Area2D" unique_id=2116270455]
+top_level = true
+z_index = 10
 script = ExtResource("1_0q2mw")
 
+[node name="LedgerLine" type="ColorRect" parent="." unique_id=241670783]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=523927674]
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_od756")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1586921093]

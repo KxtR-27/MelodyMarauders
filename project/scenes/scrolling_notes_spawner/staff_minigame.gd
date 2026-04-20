@@ -35,11 +35,14 @@ var note_offsets : Dictionary = {
 @onready var initial_cursor_position : Vector2 = cursor.global_position
 #@onready var controller : TrumpetControllerForSequencer = $AmyManager/TrumpetControllerForSequencer
 
+signal note_pipes_requested
+signal spawn_note_requested(note : SequencerNote, speed : int, tempo : int)
 signal song_finished
 signal score_tallied(hit_percentage : float)
 
 func create_song(new_song : Song) -> void:
-	spawner.position.x = cursor.position.x + (scroll_speed * 2)
+	note_pipes_requested.emit(scroll_speed)
+	
 	for measure_index : int in new_song.measures.keys():
 		var loaded_measure : Measure = new_song.measures[measure_index]
 		measures[measure_index] = loaded_measure
@@ -98,9 +101,10 @@ func _spawn_measure(measure_num : int) -> void:
 	
 	if not notes_to_spawn.is_empty():
 		for note : SequencerNote in notes_to_spawn:
-			var new_note : ScrollingNote = spawner.spawn_note(note, scroll_speed, tempo)
-			new_note.pitch_name = note.pitch_name
-			new_note.octave = note.octave
+			spawn_note_requested.emit(note, scroll_speed, tempo)
+			#var new_note : ScrollingNote = spawner.spawn_note(note, scroll_speed, tempo)
+			#new_note.pitch_name = note.pitch_name
+			#new_note.octave = note.octave
 			total_notes += 1
 
 

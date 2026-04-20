@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://baa77sy5wyiwy" path="res://scripts/scrolling_staff_generator.gd" id="1_5b86b"]
 [ext_resource type="Script" uid="uid://cc74qymmpgsf" path="res://scripts/sequencer/amy_manager.gd" id="2_c2h7a"]
 [ext_resource type="Script" uid="uid://bwfnt1f18snnm" path="res://scenes/scrolling_notes_spawner/staff_minigame.gd" id="2_fk3p3"]
-[ext_resource type="Script" uid="uid://f60yk4jvehid" path="res://scripts/scrolling_note_spawner/scrolling_note_spawner.gd" id="2_s6t1f"]
 [ext_resource type="PackedScene" uid="uid://dcu86gj7wl1c" path="res://scenes/scrolling_notes_spawner/trumpet_controller_for_sequencer.tscn" id="3_c2h7a"]
+[ext_resource type="Texture2D" uid="uid://b2sfe3meckvry" path="res://scenes/scrolling_notes_spawner/treble_small.png" id="5_045wt"]
+[ext_resource type="Script" uid="uid://cpq523y4hu1dv" path="res://scenes/scrolling_notes_spawner/note_pipe_container.gd" id="6_045wt"]
+[ext_resource type="Texture2D" uid="uid://cl1fijlv32rma" path="res://scenes/scrolling_notes_spawner/time signature.png" id="6_qnp1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2h7a"]
 size = Vector2(20, 350)
@@ -28,7 +30,7 @@ measure_timer = NodePath("../MeasureTimer")
 amy_manager = NodePath("../AmyManager")
 
 [node name="Cursor" type="Area2D" parent="StaffMinigame" unique_id=1769164578]
-position = Vector2(176, 324)
+position = Vector2(200, 324)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffMinigame/Cursor" unique_id=1664472019]
 scale = Vector2(2, 2)
@@ -36,7 +38,6 @@ shape = SubResource("RectangleShape2D_c2h7a")
 
 [node name="Spawner" type="Node2D" parent="StaffMinigame" unique_id=994065912]
 position = Vector2(976, 324)
-script = ExtResource("2_s6t1f")
 
 [node name="ClearArea" type="Area2D" parent="." unique_id=1862242290]
 position = Vector2(-10, 0)
@@ -64,6 +65,21 @@ offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TrebleClef" type="TextureRect" parent="MainControl" unique_id=827066690]
+layout_mode = 0
+offset_top = 210.0
+offset_right = 83.0
+offset_bottom = 437.0
+texture = ExtResource("5_045wt")
+
+[node name="TimeSignature" type="TextureRect" parent="MainControl" unique_id=431926717]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 224.0
+offset_right = 165.0
+offset_bottom = 424.0
+texture = ExtResource("6_qnp1i")
+
 [node name="LoadSongHBox" type="HBoxContainer" parent="MainControl" unique_id=556073422]
 visible = false
 top_level = true
@@ -74,7 +90,6 @@ offset_right = 324.0
 offset_bottom = 40.0
 
 [node name="LoadButton" type="Button" parent="MainControl/LoadSongHBox" unique_id=1733002532]
-visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -82,7 +97,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_74jum")
 text = "Load Song"
 
 [node name="CurrentSongLabel" type="Label" parent="MainControl/LoadSongHBox" unique_id=1156185120]
-visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "Current song: "
@@ -124,14 +138,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fk3p3")
 
-[node name="ColorRect" type="ColorRect" parent="MainControl" unique_id=1852593502]
+[node name="CursorRect" type="ColorRect" parent="MainControl" unique_id=1852593502]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 156.0
-offset_right = 196.0
+offset_left = 180.0
+offset_right = 220.0
 grow_vertical = 2
 color = Color(1, 0, 0, 0.50980395)
+
+[node name="NotePipeContainer" type="VBoxContainer" parent="MainControl" unique_id=101864610]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+script = ExtResource("6_045wt")
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=149639758]
 oversampling_override = 1.0
@@ -140,9 +168,11 @@ position = Vector2i(0, 36)
 file_mode = 0
 access = 1
 
+[connection signal="note_pipes_requested" from="StaffMinigame" to="." method="_on_staff_minigame_note_pipes_requested"]
 [connection signal="score_tallied" from="StaffMinigame" to="." method="_on_staff_minigame_score_tallied"]
 [connection signal="score_tallied" from="StaffMinigame" to="StaffMinigame" method="_on_score_tallied"]
 [connection signal="song_finished" from="StaffMinigame" to="StaffMinigame" method="_on_song_finished"]
+[connection signal="spawn_note_requested" from="StaffMinigame" to="." method="_on_staff_minigame_spawn_note_requested"]
 [connection signal="area_entered" from="StaffMinigame/Cursor" to="StaffMinigame" method="_on_cursor_area_entered"]
 [connection signal="area_exited" from="StaffMinigame/Cursor" to="StaffMinigame" method="_on_cursor_area_exited"]
 [connection signal="area_entered" from="ClearArea" to="StaffMinigame" method="_on_clear_area_area_entered"]

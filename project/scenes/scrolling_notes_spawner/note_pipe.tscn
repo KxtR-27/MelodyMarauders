@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chkhq3kgysei5"]
+
+[ext_resource type="Script" uid="uid://sr7vpqhdkk2r" path="res://scenes/scrolling_notes_spawner/note_pipe.gd" id="1_lg4qn"]
+
+[node name="NotePipe" type="Control" unique_id=1043511797]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lg4qn")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=755322519]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 2.0
+
+[node name="Spawner" type="Control" parent="." unique_id=251477216]
+anchors_preset = 0
+offset_left = 176.0
+offset_right = 178.0
+offset_bottom = 2.0
