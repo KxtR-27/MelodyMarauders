@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://c8d2apb5qgdo3"]
+
+[ext_resource type="Script" uid="uid://sk1nh4ufehee" path="res://scripts/instrumentation/trumpet.gd" id="1_t7jfg"]
+[ext_resource type="PackedScene" uid="uid://b8oshqqt0r58n" path="res://components/instrumentation/note_player.tscn" id="2_fv1tc"]
+[ext_resource type="Script" uid="uid://cgcp8p6xcuqem" path="res://components/instrumentation/note.gd" id="2_vuu8e"]
+[ext_resource type="Texture2D" uid="uid://o2kuhkw8w438" path="res://resources/textures/controller/trigger_L2.tres" id="2_xvdpb"]
+[ext_resource type="Texture2D" uid="uid://d0utupjod2nxm" path="res://resources/textures/controller/trigger_R2.tres" id="3_ffm8n"]
+[ext_resource type="Script" uid="uid://dt1626adbi3ig" path="res://scripts/instrumentation/table/valves_label.gd" id="4_cwml4"]
+[ext_resource type="Texture2D" uid="uid://cymnunssgkiwu" path="res://resources/textures/controller/bumper_R1.tres" id="4_t7jfg"]
+[ext_resource type="Script" uid="uid://docsuvouf67hc" path="res://scripts/instrumentation/table/embouchure_output.gd" id="5_vuu8e"]
+[ext_resource type="Texture2D" uid="uid://7lhiahqs6xpf" path="res://resources/textures/controller/face_cross.tres" id="6_cwml4"]
+[ext_resource type="Texture2D" uid="uid://bng12q8kyh7uk" path="res://resources/textures/controller/face_square.tres" id="7_8e6mv"]
+[ext_resource type="Texture2D" uid="uid://db2mfdlwjve6t" path="res://resources/textures/controller/face_circle.tres" id="8_lg3kk"]
+[ext_resource type="Texture2D" uid="uid://l0x7nkpekp4m" path="res://resources/textures/controller/face_triangle.tres" id="9_6t4xc"]
+[ext_resource type="Script" uid="uid://db5wdl7w5sxl2" path="res://scripts/highlighting_glyph.gd" id="9_vuu8e"]
+
+[sub_resource type="Resource" id="Resource_y0ipm"]
+script = ExtResource("2_vuu8e")
+note = 0
+debug_frequency = 261.6
+note_name = "C"
+
+[node name="Trumpet" type="MarginContainer" unique_id=220483528]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -79.5
+offset_right = 148.0
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7jfg")
+current_note = SubResource("Resource_y0ipm")
+wave = 2
+
+[node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("2_fv1tc")]
+
+[node name="Table" type="VBoxContainer" parent="." unique_id=1228581778]
+layout_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="ValvesInputs" type="HBoxContainer" parent="Table" unique_id=387160617]
+layout_mode = 2
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Table/ValvesInputs" unique_id=292737902]
+layout_mode = 2
+text = "Valves:
+○○○"
+horizontal_alignment = 1
+script = ExtResource("4_cwml4")
+
+[node name="Valve1" type="TextureRect" parent="Table/ValvesInputs" unique_id=1511936761]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_xvdpb")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_valve_one"
+
+[node name="Valve2" type="TextureRect" parent="Table/ValvesInputs" unique_id=1222276613]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_ffm8n")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_valve_two"
+
+[node name="Valve3" type="TextureRect" parent="Table/ValvesInputs" unique_id=1191850459]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_t7jfg")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_valve_three"
+
+[node name="EmbouchureOutputs" type="HBoxContainer" parent="Table" unique_id=477769481]
+layout_mode = 2
+size_flags_horizontal = 4
+metadata/_edit_lock_ = true
+
+[node name="Bottom" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1181340103]
+layout_mode = 2
+script = ExtResource("5_vuu8e")
+
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Bottom" unique_id=1628353695]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_cwml4")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_open_bottom"
+additional_actions = Array[StringName]([&""])
+
+[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Bottom" unique_id=324879304]
+layout_mode = 2
+text = "C4"
+horizontal_alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=357747531]
+layout_mode = 2
+script = ExtResource("5_vuu8e")
+embouchure = "trumpet_open_left"
+
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Left" unique_id=1273989661]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_8e6mv")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_open_left"
+
+[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Left" unique_id=1320973277]
+layout_mode = 2
+text = "G4"
+horizontal_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1225398794]
+layout_mode = 2
+script = ExtResource("5_vuu8e")
+embouchure = "trumpet_open_right"
+
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Right" unique_id=309885910]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_lg3kk")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_open_right"
+
+[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Right" unique_id=989723030]
+layout_mode = 2
+text = "C5"
+horizontal_alignment = 1
+
+[node name="Top" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1875877870]
+layout_mode = 2
+script = ExtResource("5_vuu8e")
+embouchure = "trumpet_open_top"
+
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Top" unique_id=1935345477]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_6t4xc")
+stretch_mode = 3
+script = ExtResource("9_vuu8e")
+input_action = &"trumpet_open_top"
+
+[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Top" unique_id=955591665]
+layout_mode = 2
+text = "E5"
+horizontal_alignment = 1

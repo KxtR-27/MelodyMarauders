@@ -57,8 +57,11 @@ func play_note(note: Note, waveform := Waves.SINE, should_sustain: bool = false)
 	# ensure that the oscillator actually exists
 	if not amy: _init_amy()
 	
+	# good lord the saw waves are loud
+	var lower_volume := waveform == Waves.SAW_DOWN or waveform == Waves.SAW_UP
+	var velocity := 1.0 if not lower_volume else 0.5
 	# play note
-	amy.send({"osc": 0, "wave": waveform, "freq": note.get_frequency(), "vel": 1})
+	amy.send({"osc": 0, "wave": waveform, "freq": note.get_frequency(), "vel": velocity})
 	note_played.emit(note)
 	
 	if not should_sustain:

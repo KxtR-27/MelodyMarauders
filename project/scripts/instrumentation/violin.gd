@@ -1,6 +1,6 @@
 @tool
-class_name ViolinController
-extends Node
+class_name Violin
+extends Instrument
 
 
 static var open_notes_map: Dictionary[String, Note] = {
@@ -23,9 +23,8 @@ static var finger_position_values: Dictionary[String, int] = {
 @export var current_finger_position: int = 0
 @export var finger_position_modifier: int = 0
 
-@export var accepting_input := true
-
-@onready var note_player: NotePlayer = $NotePlayer
+@onready var string_label: Label = $Table/StateLabels/CurrentString
+@onready var bow_dir_label: Label = $Table/StateLabels/NextBowDirection
 
 
 func _process(_delta: float) -> void:
@@ -34,15 +33,16 @@ func _process(_delta: float) -> void:
 	
 	_update_current_open_note()
 	
-	var hit_occurred: bool = _check_for_hit()
-	if hit_occurred:
+	if _check_for_hit():
 		last_bow_dir_was_up = not last_bow_dir_was_up
 		var bend_factor: int = current_finger_position
+		
 		if Input.is_action_pressed("violin_lower_current_finger"):
 			bend_factor -= 1
 		elif Input.is_action_pressed("violin_higher_current_finger"):
 			bend_factor += 1
-		note_player.play_note(current_open_note.bend(bend_factor), NotePlayer.Waves.SAW_DOWN)
+			
+		play_note(current_open_note.bend(bend_factor))
 
 
 func _update_current_open_note() -> void:

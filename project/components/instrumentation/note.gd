@@ -1,6 +1,8 @@
 @tool
 class_name Note
 extends Resource
+# This is in the components folder for ease of access and 
+# because it is used with all these components
 
 
 static var Notes: Dictionary[String, int] = {
@@ -50,7 +52,7 @@ func _init(n := Notes["C"], o: int = 4, s: float = 1.0) -> void:
 
 
 func _to_string() -> String:
-	return "Note %s%d (%.2f Hz)" % [Notes.find_key(note), octave, get_frequency()]
+	return "%s%d" % [Notes.find_key(note), octave]
 
 
 func get_frequency() -> float:

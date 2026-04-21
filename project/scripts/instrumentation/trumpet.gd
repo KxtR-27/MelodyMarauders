@@ -1,6 +1,6 @@
 @tool
-class_name TrumpetController
-extends Node
+class_name Trumpet
+extends Instrument
 
 
 static var Notes := Note.Notes
@@ -30,11 +30,7 @@ static var VALVE_BEND_MAP: Dictionary[Array, int] = {
 @export var valve_combo := [false, false, false]
 @export var current_note: Note = Note.new(Notes["C"])
 
-@export_group("Debug")
-@export var playing: bool = false
-@export var accepting_input := true
-
-@onready var note_player: NotePlayer = $NotePlayer
+var playing: bool = false
 
 
 func _ready() -> void:
@@ -51,7 +47,7 @@ func _process(_delta: float) -> void:
 		_update_current_note()
 		if embouchure_input and Input.is_action_pressed(embouchure_input):
 			# this is bent down because trumpets play in Bb pitch instead of concert pitch
-			note_player.play_note(current_note.bend(-2), NotePlayer.Waves.SAW_DOWN, true)
+			play_note(current_note.bend(-2))
 	
 	if not embouchure_input or Input.is_action_just_released(embouchure_input):
 		note_player.stop_note()
