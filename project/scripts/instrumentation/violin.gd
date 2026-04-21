@@ -1,4 +1,3 @@
-@tool
 class_name Violin
 extends Instrument
 
@@ -28,8 +27,7 @@ static var finger_position_values: Dictionary[String, int] = {
 
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint() or not accepting_input:
-		return
+	if not accepting_input: return
 	
 	_update_current_open_note()
 	

@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://db2mfdlwjve6t"]
-
-[ext_resource type="Texture2D" uid="uid://cngexfq6cumu1" path="res://assets/playstation-series_sheet_default.png" id="1_rstlw"]
-
-[resource]
-atlas = ExtResource("1_rstlw")
-region = Rect2(640, 704, 64, 64)

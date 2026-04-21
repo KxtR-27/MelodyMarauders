@@ -3,17 +3,18 @@
 [ext_resource type="Script" uid="uid://blext84ivjdwx" path="res://scripts/instrumentation/violin.gd" id="1_q1ouw"]
 [ext_resource type="Script" uid="uid://cgcp8p6xcuqem" path="res://components/instrumentation/note.gd" id="2_naeuw"]
 [ext_resource type="PackedScene" uid="uid://b8oshqqt0r58n" path="res://components/instrumentation/note_player.tscn" id="3_6jnah"]
-[ext_resource type="Texture2D" uid="uid://o2kuhkw8w438" path="res://resources/textures/controller/trigger_L2.tres" id="4_arapv"]
+[ext_resource type="Texture2D" uid="uid://o2kuhkw8w438" path="res://resources/textures/controller_old/trigger_L2.tres" id="4_arapv"]
 [ext_resource type="Script" uid="uid://bj028yidwkwak" path="res://scripts/instrumentation/violin_table.gd" id="4_n2x4w"]
-[ext_resource type="Script" uid="uid://db5wdl7w5sxl2" path="res://scripts/highlighting_glyph.gd" id="5_q4hjk"]
-[ext_resource type="Texture2D" uid="uid://d0utupjod2nxm" path="res://resources/textures/controller/trigger_R2.tres" id="6_07r4r"]
-[ext_resource type="Texture2D" uid="uid://nrnd4ablj0ti" path="res://resources/textures/controller/bumper_L1.tres" id="6_q4hjk"]
-[ext_resource type="Texture2D" uid="uid://cymnunssgkiwu" path="res://resources/textures/controller/bumper_R1.tres" id="7_n2x4w"]
-[ext_resource type="Texture2D" uid="uid://7lhiahqs6xpf" path="res://resources/textures/controller/face_cross.tres" id="8_ulvgi"]
-[ext_resource type="Texture2D" uid="uid://bng12q8kyh7uk" path="res://resources/textures/controller/face_square.tres" id="9_ddxhb"]
-[ext_resource type="Texture2D" uid="uid://db2mfdlwjve6t" path="res://resources/textures/controller/face_circle.tres" id="10_3bq7n"]
+[ext_resource type="Script" uid="uid://db5wdl7w5sxl2" path="res://scripts/lightup_control.gd" id="5_q4hjk"]
+[ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="5_ulvgi"]
+[ext_resource type="Texture2D" uid="uid://d0utupjod2nxm" path="res://resources/textures/controller_old/trigger_R2.tres" id="6_07r4r"]
+[ext_resource type="Texture2D" uid="uid://nrnd4ablj0ti" path="res://resources/textures/controller_old/bumper_L1.tres" id="6_q4hjk"]
+[ext_resource type="Texture2D" uid="uid://cymnunssgkiwu" path="res://resources/textures/controller_old/bumper_R1.tres" id="7_n2x4w"]
+[ext_resource type="Texture2D" uid="uid://7lhiahqs6xpf" path="res://resources/textures/controller_old/face_cross.tres" id="8_ulvgi"]
+[ext_resource type="Texture2D" uid="uid://bng12q8kyh7uk" path="res://resources/textures/controller_old/face_square.tres" id="9_ddxhb"]
+[ext_resource type="Texture2D" uid="uid://db2mfdlwjve6t" path="res://resources/textures/controller_old/face_circle.tres" id="10_3bq7n"]
 [ext_resource type="Script" uid="uid://bu4gco5dn03m4" path="res://scripts/instrumentation/table/finger_output.gd" id="10_07r4r"]
-[ext_resource type="Texture2D" uid="uid://l0x7nkpekp4m" path="res://resources/textures/controller/face_triangle.tres" id="11_8a2un"]
+[ext_resource type="Texture2D" uid="uid://l0x7nkpekp4m" path="res://resources/textures/controller_old/face_triangle.tres" id="11_8a2un"]
 
 [sub_resource type="Resource" id="Resource_prmrj"]
 script = ExtResource("2_naeuw")
@@ -21,9 +22,6 @@ note = 2
 sustain = 0.5
 debug_frequency = 293.636071837732
 note_name = "D"
-
-[sub_resource type="LabelSettings" id="LabelSettings_q4hjk"]
-font_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
 
 [node name="Violin" type="MarginContainer" unique_id=1586057603]
 anchors_preset = 8
@@ -57,11 +55,13 @@ theme_override_constants/separation = 10
 [node name="CurrentString" type="Label" parent="Table/StateLabels" unique_id=1081936538]
 layout_mode = 2
 text = "Current String: D String"
+label_settings = ExtResource("5_ulvgi")
 
 [node name="NextBowDirection" type="Label" parent="Table/StateLabels" unique_id=498480173]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Move down!"
+label_settings = ExtResource("5_ulvgi")
 
 [node name="StringInputs" type="HBoxContainer" parent="Table" unique_id=408087414]
 layout_mode = 2
@@ -87,7 +87,7 @@ mode = "RadioToggle"
 [node name="Label" type="Label" parent="Table/StringInputs/StringG" unique_id=562340007]
 layout_mode = 2
 text = "Open G3"
-label_settings = SubResource("LabelSettings_q4hjk")
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 
 [node name="StringD" type="VBoxContainer" parent="Table/StringInputs" unique_id=1381051175]
@@ -109,7 +109,7 @@ active = true
 [node name="Label" type="Label" parent="Table/StringInputs/StringD" unique_id=384704693]
 layout_mode = 2
 text = "Open D4"
-label_settings = SubResource("LabelSettings_q4hjk")
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 
 [node name="StringA" type="VBoxContainer" parent="Table/StringInputs" unique_id=1336460725]
@@ -129,7 +129,7 @@ mode = "RadioToggle"
 [node name="Label" type="Label" parent="Table/StringInputs/StringA" unique_id=740664060]
 layout_mode = 2
 text = "Open A4"
-label_settings = SubResource("LabelSettings_q4hjk")
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 
 [node name="StringE" type="VBoxContainer" parent="Table/StringInputs" unique_id=885804301]
@@ -149,7 +149,7 @@ mode = "RadioToggle"
 [node name="Label" type="Label" parent="Table/StringInputs/StringE" unique_id=662979085]
 layout_mode = 2
 text = "Open E5"
-label_settings = SubResource("LabelSettings_q4hjk")
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 
 [node name="FingerOutputs" type="HBoxContainer" parent="Table" unique_id=190637109]
@@ -171,6 +171,7 @@ input_action = &"violin_finger_first"
 [node name="Output" type="Label" parent="Table/FingerOutputs/Bottom" unique_id=451133027]
 layout_mode = 2
 text = "C4"
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 
@@ -188,6 +189,7 @@ input_action = &"violin_finger_second"
 [node name="Output" type="Label" parent="Table/FingerOutputs/Left" unique_id=226896137]
 layout_mode = 2
 text = "G4"
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 finger_pos = "violin_finger_second"
@@ -206,6 +208,7 @@ input_action = &"violin_finger_third"
 [node name="Output" type="Label" parent="Table/FingerOutputs/Right" unique_id=1580340747]
 layout_mode = 2
 text = "C5"
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 finger_pos = "violin_finger_third"
@@ -224,6 +227,7 @@ input_action = &"violin_finger_fourth"
 [node name="Output" type="Label" parent="Table/FingerOutputs/Top" unique_id=1021751117]
 layout_mode = 2
 text = "E5"
+label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 finger_pos = "violin_finger_fourth"

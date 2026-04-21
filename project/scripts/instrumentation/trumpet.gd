@@ -1,4 +1,3 @@
-@tool
 class_name Trumpet
 extends Instrument
 
@@ -38,7 +37,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint() or not accepting_input: return
+	if not accepting_input: return
 	
 	var embouchure_changed: bool = _update_embouchure()
 	var valves_changed: bool = _update_valve_combo()

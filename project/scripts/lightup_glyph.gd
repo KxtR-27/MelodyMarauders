@@ -1,5 +1,5 @@
-@tool
-extends TextureRect
+class_name LightupGlyph
+extends PressableGlyph
 
 const _unhighlighted_opacity := 0.5
 
@@ -10,14 +10,13 @@ const _unhighlighted_opacity := 0.5
 @export var active := false
 
 
-func _ready() -> void:
-	self.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
-	self.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+#func _ready() -> void:
+	#self.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	#self.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
+	super._process(_delta)
 	
 	var positive_actions: Array
 	var negative_actions: Array

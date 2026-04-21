@@ -1,2 +1,3 @@
 asset_packs/*
 !asset_packs/*.zip
+.vscode/settings.json

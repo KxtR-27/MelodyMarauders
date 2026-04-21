@@ -1,4 +1,4 @@
-@tool @abstract
+@abstract
 class_name Instrument
 extends MarginContainer
 # this is in the components folder because it is its own extendable class

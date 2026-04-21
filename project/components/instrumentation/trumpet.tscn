@@ -3,22 +3,36 @@
 [ext_resource type="Script" uid="uid://sk1nh4ufehee" path="res://scripts/instrumentation/trumpet.gd" id="1_t7jfg"]
 [ext_resource type="PackedScene" uid="uid://b8oshqqt0r58n" path="res://components/instrumentation/note_player.tscn" id="2_fv1tc"]
 [ext_resource type="Script" uid="uid://cgcp8p6xcuqem" path="res://components/instrumentation/note.gd" id="2_vuu8e"]
-[ext_resource type="Texture2D" uid="uid://o2kuhkw8w438" path="res://resources/textures/controller/trigger_L2.tres" id="2_xvdpb"]
-[ext_resource type="Texture2D" uid="uid://d0utupjod2nxm" path="res://resources/textures/controller/trigger_R2.tres" id="3_ffm8n"]
 [ext_resource type="Script" uid="uid://dt1626adbi3ig" path="res://scripts/instrumentation/table/valves_label.gd" id="4_cwml4"]
-[ext_resource type="Texture2D" uid="uid://cymnunssgkiwu" path="res://resources/textures/controller/bumper_R1.tres" id="4_t7jfg"]
+[ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="4_g255g"]
 [ext_resource type="Script" uid="uid://docsuvouf67hc" path="res://scripts/instrumentation/table/embouchure_output.gd" id="5_vuu8e"]
-[ext_resource type="Texture2D" uid="uid://7lhiahqs6xpf" path="res://resources/textures/controller/face_cross.tres" id="6_cwml4"]
-[ext_resource type="Texture2D" uid="uid://bng12q8kyh7uk" path="res://resources/textures/controller/face_square.tres" id="7_8e6mv"]
-[ext_resource type="Texture2D" uid="uid://db2mfdlwjve6t" path="res://resources/textures/controller/face_circle.tres" id="8_lg3kk"]
-[ext_resource type="Texture2D" uid="uid://l0x7nkpekp4m" path="res://resources/textures/controller/face_triangle.tres" id="9_6t4xc"]
-[ext_resource type="Script" uid="uid://db5wdl7w5sxl2" path="res://scripts/highlighting_glyph.gd" id="9_vuu8e"]
+[ext_resource type="Texture2D" uid="uid://c15icvmd0mk04" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_unpressed.tres" id="6_qm7ip"]
+[ext_resource type="Texture2D" uid="uid://cedsahodqnriy" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_pressed.tres" id="7_8pwaw"]
+[ext_resource type="Script" uid="uid://coleee0gj2n40" path="res://scripts/lightup_glyph.gd" id="7_g255g"]
+[ext_resource type="Texture2D" uid="uid://veoaiollu1at" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_pressed.tres" id="9_8pwaw"]
+[ext_resource type="Texture2D" uid="uid://b8ox73a8aguav" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_unpressed.tres" id="9_8wnik"]
+[ext_resource type="Texture2D" uid="uid://bu28mcefeonfg" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_r1_unpressed.tres" id="10_8wnik"]
+[ext_resource type="Texture2D" uid="uid://c7hwq5kii8ls4" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_r1_pressed.tres" id="11_oxong"]
+[ext_resource type="Texture2D" uid="uid://cj5jg27tq05pn" path="res://resources/textures/gameboy_quest/controller/face_buttons/cross_unpressed.tres" id="14_oxong"]
+[ext_resource type="Texture2D" uid="uid://b2gcekphlxem0" path="res://resources/textures/gameboy_quest/controller/face_buttons/cross_pressed.tres" id="15_skjb7"]
+[ext_resource type="Texture2D" uid="uid://bl0vtgu3fd08y" path="res://resources/textures/gameboy_quest/controller/face_buttons/square_unpressed.tres" id="16_oxong"]
+[ext_resource type="Texture2D" uid="uid://bp8hqqsn6g0ci" path="res://resources/textures/gameboy_quest/controller/face_buttons/square_pressed.tres" id="17_skjb7"]
+[ext_resource type="Texture2D" uid="uid://c7sy8iue1m2kk" path="res://resources/textures/gameboy_quest/controller/face_buttons/circle_unpressed.tres" id="18_qftfx"]
+[ext_resource type="Texture2D" uid="uid://ccq1ttbiacln3" path="res://resources/textures/gameboy_quest/controller/face_buttons/circle_pressed.tres" id="19_sv57g"]
+[ext_resource type="Texture2D" uid="uid://bfv7o4omuem4h" path="res://resources/textures/gameboy_quest/controller/face_buttons/triangle_unpressed.tres" id="20_s4m8c"]
+[ext_resource type="Texture2D" uid="uid://c5vkka12ds747" path="res://resources/textures/gameboy_quest/controller/face_buttons/triangle_pressed.tres" id="21_amcu6"]
 
-[sub_resource type="Resource" id="Resource_y0ipm"]
+[sub_resource type="Resource" id="Resource_g255g"]
 script = ExtResource("2_vuu8e")
 note = 0
 debug_frequency = 261.6
 note_name = "C"
+
+[sub_resource type="LabelSettings" id="LabelSettings_qftfx"]
+outline_color = Color(0.36862746, 0.52156866, 0.28627452, 1)
+shadow_size = 4
+shadow_color = Color(0.36862746, 0.52156866, 0.28627452, 1)
+shadow_offset = Vector2(-1, 1)
 
 [node name="Trumpet" type="MarginContainer" unique_id=220483528]
 anchors_preset = 8
@@ -33,7 +47,7 @@ offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t7jfg")
-current_note = SubResource("Resource_y0ipm")
+current_note = SubResource("Resource_g255g")
 wave = 2
 
 [node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("2_fv1tc")]
@@ -43,6 +57,7 @@ layout_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="ValvesInputs" type="HBoxContainer" parent="Table" unique_id=387160617]
+custom_minimum_size = Vector2(0, 66)
 layout_mode = 2
 alignment = 1
 metadata/_edit_lock_ = true
@@ -51,34 +66,49 @@ metadata/_edit_lock_ = true
 layout_mode = 2
 text = "Valves:
 ○○○"
+label_settings = SubResource("LabelSettings_qftfx")
 horizontal_alignment = 1
+autowrap_trim_flags = 0
 script = ExtResource("4_cwml4")
 
 [node name="Valve1" type="TextureRect" parent="Table/ValvesInputs" unique_id=1511936761]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("2_xvdpb")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+texture = ExtResource("6_qm7ip")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_valve_one"
+unpressed_texture = ExtResource("6_qm7ip")
+pressed_texture = ExtResource("7_8pwaw")
+press_action = &"trumpet_valve_one"
 
 [node name="Valve2" type="TextureRect" parent="Table/ValvesInputs" unique_id=1222276613]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("3_ffm8n")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+texture = ExtResource("9_8wnik")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_valve_two"
+unpressed_texture = ExtResource("9_8wnik")
+pressed_texture = ExtResource("9_8pwaw")
+press_action = &"trumpet_valve_two"
 
 [node name="Valve3" type="TextureRect" parent="Table/ValvesInputs" unique_id=1191850459]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("4_t7jfg")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+texture = ExtResource("10_8wnik")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_valve_three"
+unpressed_texture = ExtResource("10_8wnik")
+pressed_texture = ExtResource("11_oxong")
+press_action = &"trumpet_valve_three"
 
 [node name="EmbouchureOutputs" type="HBoxContainer" parent="Table" unique_id=477769481]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 metadata/_edit_lock_ = true
@@ -88,17 +118,22 @@ layout_mode = 2
 script = ExtResource("5_vuu8e")
 
 [node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Bottom" unique_id=1628353695]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("6_cwml4")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+size_flags_vertical = 3
+texture = ExtResource("14_oxong")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_open_bottom"
-additional_actions = Array[StringName]([&""])
+unpressed_texture = ExtResource("14_oxong")
+pressed_texture = ExtResource("15_skjb7")
+press_action = &"trumpet_open_bottom"
 
 [node name="Output" type="Label" parent="Table/EmbouchureOutputs/Bottom" unique_id=324879304]
 layout_mode = 2
 text = "C4"
+label_settings = ExtResource("4_g255g")
 horizontal_alignment = 1
 
 [node name="Left" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=357747531]
@@ -106,17 +141,23 @@ layout_mode = 2
 script = ExtResource("5_vuu8e")
 embouchure = "trumpet_open_left"
 
-[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Left" unique_id=1273989661]
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Left" unique_id=572544930]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("7_8e6mv")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+size_flags_vertical = 3
+texture = ExtResource("16_oxong")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_open_left"
+unpressed_texture = ExtResource("16_oxong")
+pressed_texture = ExtResource("17_skjb7")
+press_action = &"trumpet_open_left"
 
 [node name="Output" type="Label" parent="Table/EmbouchureOutputs/Left" unique_id=1320973277]
 layout_mode = 2
 text = "G4"
+label_settings = ExtResource("4_g255g")
 horizontal_alignment = 1
 
 [node name="Right" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1225398794]
@@ -125,16 +166,22 @@ script = ExtResource("5_vuu8e")
 embouchure = "trumpet_open_right"
 
 [node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Right" unique_id=309885910]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("8_lg3kk")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+size_flags_vertical = 3
+texture = ExtResource("18_qftfx")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_open_right"
+unpressed_texture = ExtResource("18_qftfx")
+pressed_texture = ExtResource("19_sv57g")
+press_action = &"trumpet_open_right"
 
 [node name="Output" type="Label" parent="Table/EmbouchureOutputs/Right" unique_id=989723030]
 layout_mode = 2
 text = "C5"
+label_settings = ExtResource("4_g255g")
 horizontal_alignment = 1
 
 [node name="Top" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1875877870]
@@ -143,14 +190,20 @@ script = ExtResource("5_vuu8e")
 embouchure = "trumpet_open_top"
 
 [node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Top" unique_id=1935345477]
+modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("9_6t4xc")
-stretch_mode = 3
-script = ExtResource("9_vuu8e")
+size_flags_vertical = 3
+texture = ExtResource("20_s4m8c")
+expand_mode = 2
+script = ExtResource("7_g255g")
 input_action = &"trumpet_open_top"
+unpressed_texture = ExtResource("20_s4m8c")
+pressed_texture = ExtResource("21_amcu6")
+press_action = &"trumpet_open_top"
 
 [node name="Output" type="Label" parent="Table/EmbouchureOutputs/Top" unique_id=955591665]
 layout_mode = 2
 text = "E5"
+label_settings = ExtResource("4_g255g")
 horizontal_alignment = 1
