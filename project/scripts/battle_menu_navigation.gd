@@ -5,6 +5,7 @@ class_name BattleNavMenu
 @warning_ignore_start("unused_signal")
 signal attack_enemy(damage: float)
 signal mana_changed(player_who_lost_mana: Player)
+signal rest_used(player: Player)
 @warning_ignore_restore("unused_signal")
 
 @export var midnight_sonata: Button
@@ -20,6 +21,7 @@ signal mana_changed(player_who_lost_mana: Player)
 @export var note_list: NinePatchRect
 @export var action_list: HBoxContainer
 @export var note: Button
+@export var rest: Button
 
 var currently_selected_move: move_attack = null
 var can_interact: bool = false
@@ -32,10 +34,17 @@ func _ready() -> void:
 	currently_selected_player = player1
 	note.grab_focus.call_deferred()
 	note.pressed.connect(_on_button_pressed)
+	rest.pressed.connect(_on_rest_pressed)
 	get_viewport().gui_focus_changed.connect(_on_gui_focus_changed)
 	action_list.visible = true
 	note_list.visible = false
 	enemy.players = [player1, player2]
+	
+		
+func _on_rest_pressed() -> void:
+	if !can_interact:
+		return
+	rest_used.emit(currently_selected_player)
 
 
 func _on_button_pressed() -> void:

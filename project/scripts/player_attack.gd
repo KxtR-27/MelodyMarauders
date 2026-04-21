@@ -29,6 +29,10 @@ func Enter() -> void:
 		batNavMenu.currently_selected_player = batNavMenu.player2
 	elif batNavMenu.currently_selected_player == batNavMenu.player2 and not player_2_alive:
 		self.Transitioned.emit(self, "BossAttack")
+		
+		
+	if !batNavMenu.rest_used.is_connected(_on_rest_used):
+		batNavMenu.rest_used.connect(_on_rest_used)
 	
 
 
@@ -38,6 +42,7 @@ func Exit() -> void:
 
 
 func Update(_delta: float) -> void:
+	
 	if batNavMenu.note_list.visible and Input.is_action_just_pressed("ui_cancel"):
 		batNavMenu.currently_selected_player = batNavMenu.player1
 		batNavMenu.reset_battle_menu()
@@ -69,6 +74,18 @@ func Update(_delta: float) -> void:
 
 func Physics_Update(_delta: float) -> void:
 	pass
+	
+func _on_rest_used(player: Player) -> void:
+	print("rest used by ", player)
+	player.mana += 5
+	print(player.mana)
+	batNavMenu.mana_changed.emit(player)
+	
+	if player == batNavMenu.player1:
+		batNavMenu.currently_selected_player = batNavMenu.player2
+		batNavMenu.reset_battle_menu()
+	else:
+		Transitioned.emit(self, "BossAttack")
 
 
 func _use_sequencer() -> float:

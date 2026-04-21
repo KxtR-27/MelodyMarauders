@@ -145,3 +145,5 @@ bar_owner = NodePath("../Player2")
 
 [connection signal="enemy_took_damage" from="Enemy" to="Enemy/EnemyHP/HPvalue" method="_on_enemy_enemy_took_damage"]
 [connection signal="attack_enemy" from="BattleMenuNavigation" to="Enemy" method="_on_battle_menu_navigation_attack_enemy"]
+[connection signal="mana_changed" from="BattleMenuNavigation" to="Player1HPMP" method="_on_battle_menu_navigation_mana_changed"]
+[connection signal="mana_changed" from="BattleMenuNavigation" to="Player2HPMP" method="_on_battle_menu_navigation_mana_changed"]

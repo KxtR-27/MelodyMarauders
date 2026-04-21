@@ -68,4 +68,4 @@ func _on_enemy_took_damage(_current_health: int) -> void:
 
 
 func update_health_label() -> void:
-	health_label.text = "Health: " + str(int(health)) + "/100"
+	health_label.text = "Health: " + str(int(health)) + "/25"
