@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://docsuvouf67hc" path="res://scripts/instrumentation/table/embouchure_output.gd" id="5_vuu8e"]
 [ext_resource type="Texture2D" uid="uid://c15icvmd0mk04" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_unpressed.tres" id="6_qm7ip"]
 [ext_resource type="Texture2D" uid="uid://cedsahodqnriy" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_pressed.tres" id="7_8pwaw"]
-[ext_resource type="Script" uid="uid://coleee0gj2n40" path="res://scripts/lightup_glyph.gd" id="7_g255g"]
+[ext_resource type="Script" uid="uid://coleee0gj2n40" path="res://scripts/instrumentation/table/lightup_glyph.gd" id="7_g255g"]
 [ext_resource type="Texture2D" uid="uid://veoaiollu1at" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_pressed.tres" id="9_8pwaw"]
 [ext_resource type="Texture2D" uid="uid://b8ox73a8aguav" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_unpressed.tres" id="9_8wnik"]
 [ext_resource type="Texture2D" uid="uid://bu28mcefeonfg" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_r1_unpressed.tres" id="10_8wnik"]
@@ -49,6 +49,7 @@ grow_vertical = 2
 script = ExtResource("1_t7jfg")
 current_note = SubResource("Resource_g255g")
 wave = 2
+should_sustain_notes = true
 
 [node name="NotePlayer" parent="." unique_id=443806133 instance=ExtResource("2_fv1tc")]
 
@@ -57,7 +58,7 @@ layout_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="ValvesInputs" type="HBoxContainer" parent="Table" unique_id=387160617]
-custom_minimum_size = Vector2(0, 66)
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 alignment = 1
 metadata/_edit_lock_ = true

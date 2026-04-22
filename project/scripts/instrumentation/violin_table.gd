@@ -3,7 +3,7 @@ extends VBoxContainer
 
 @onready var violin: Violin = self.get_parent()
 @onready var string_label: Label = $StateLabels/CurrentString
-@onready var bow_dir_label: Label = $StateLabels/NextBowDirection
+@onready var bow_dir_label: Label = $StateLabels/BowDirBox/NextBowDirection
 
 
 func _process(_delta: float) -> void:
@@ -33,4 +33,4 @@ func _update_bow_dir_label() -> void:
 	if not bow_dir_label: 
 		return
 	else:
-		bow_dir_label.text = "Move down!" if violin.last_bow_dir_was_up else "Move up!"
+		bow_dir_label.text = "  Move down!" if violin.last_bow_dir_was_up else "  Move up!"

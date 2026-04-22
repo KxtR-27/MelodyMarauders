@@ -8,6 +8,7 @@ extends MarginContainer
 signal played_note(note: Note, correctly: bool)
 
 @export var wave: NotePlayer.Waves
+@export var should_sustain_notes := false
 @export var accepting_input := true
 @export var show_table := true:
 	set(update):
@@ -29,5 +30,5 @@ func play_note(note: Note) -> void:
 		note_player.play_extra(note, wave)
 		played_note.emit(note, false)
 	else:
-		note_player.play_note(note, wave)
-		played_note.emit(note, true)
+		note_player.play_note(note, wave, should_sustain_notes)
+		played_note.emit(note)

@@ -3,18 +3,35 @@
 [ext_resource type="Script" uid="uid://blext84ivjdwx" path="res://scripts/instrumentation/violin.gd" id="1_q1ouw"]
 [ext_resource type="Script" uid="uid://cgcp8p6xcuqem" path="res://components/instrumentation/note.gd" id="2_naeuw"]
 [ext_resource type="PackedScene" uid="uid://b8oshqqt0r58n" path="res://components/instrumentation/note_player.tscn" id="3_6jnah"]
-[ext_resource type="Texture2D" uid="uid://o2kuhkw8w438" path="res://resources/textures/controller_old/trigger_L2.tres" id="4_arapv"]
 [ext_resource type="Script" uid="uid://bj028yidwkwak" path="res://scripts/instrumentation/violin_table.gd" id="4_n2x4w"]
-[ext_resource type="Script" uid="uid://db5wdl7w5sxl2" path="res://scripts/lightup_control.gd" id="5_q4hjk"]
 [ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="5_ulvgi"]
-[ext_resource type="Texture2D" uid="uid://d0utupjod2nxm" path="res://resources/textures/controller_old/trigger_R2.tres" id="6_07r4r"]
-[ext_resource type="Texture2D" uid="uid://nrnd4ablj0ti" path="res://resources/textures/controller_old/bumper_L1.tres" id="6_q4hjk"]
-[ext_resource type="Texture2D" uid="uid://cymnunssgkiwu" path="res://resources/textures/controller_old/bumper_R1.tres" id="7_n2x4w"]
-[ext_resource type="Texture2D" uid="uid://7lhiahqs6xpf" path="res://resources/textures/controller_old/face_cross.tres" id="8_ulvgi"]
-[ext_resource type="Texture2D" uid="uid://bng12q8kyh7uk" path="res://resources/textures/controller_old/face_square.tres" id="9_ddxhb"]
-[ext_resource type="Texture2D" uid="uid://db2mfdlwjve6t" path="res://resources/textures/controller_old/face_circle.tres" id="10_3bq7n"]
+[ext_resource type="Script" uid="uid://coleee0gj2n40" path="res://scripts/instrumentation/table/lightup_glyph.gd" id="6_ayiei"]
+[ext_resource type="Texture2D" uid="uid://c6iqvj3b4srl0" path="res://resources/textures/gameboy_quest/controller/dpad_buttons/dpad_down_unpressed.tres" id="6_m17th"]
+[ext_resource type="Texture2D" uid="uid://dn06fonrkcthw" path="res://resources/textures/gameboy_quest/controller/sticks/stick_down.tres" id="6_n4w03"]
+[ext_resource type="Texture2D" uid="uid://cj5jg27tq05pn" path="res://resources/textures/gameboy_quest/controller/face_buttons/cross_unpressed.tres" id="6_ulvgi"]
+[ext_resource type="Script" uid="uid://b6fpxjcssigyl" path="res://scripts/instrumentation/table/bow_dir_glyph.gd" id="7_odwiy"]
+[ext_resource type="Texture2D" uid="uid://b2gcekphlxem0" path="res://resources/textures/gameboy_quest/controller/face_buttons/cross_pressed.tres" id="8_ddxhb"]
+[ext_resource type="Texture2D" uid="uid://q2wtc1bt3tid" path="res://resources/textures/gameboy_quest/controller/dpad_buttons/dpad_down_pressed.tres" id="8_earyy"]
+[ext_resource type="Texture2D" uid="uid://bl0vtgu3fd08y" path="res://resources/textures/gameboy_quest/controller/face_buttons/square_unpressed.tres" id="9_3bq7n"]
+[ext_resource type="Texture2D" uid="uid://1dhhl6bov6hs" path="res://resources/textures/gameboy_quest/controller/dpad_buttons/dpad_up_unpressed.tres" id="9_m0ude"]
 [ext_resource type="Script" uid="uid://bu4gco5dn03m4" path="res://scripts/instrumentation/table/finger_output.gd" id="10_07r4r"]
-[ext_resource type="Texture2D" uid="uid://l0x7nkpekp4m" path="res://resources/textures/controller_old/face_triangle.tres" id="11_8a2un"]
+[ext_resource type="Texture2D" uid="uid://bp8hqqsn6g0ci" path="res://resources/textures/gameboy_quest/controller/face_buttons/square_pressed.tres" id="10_8a2un"]
+[ext_resource type="Texture2D" uid="uid://c4mxkifljakw8" path="res://resources/textures/gameboy_quest/controller/dpad_buttons/dpad_up_pressed.tres" id="10_ibx1q"]
+[ext_resource type="Texture2D" uid="uid://c7sy8iue1m2kk" path="res://resources/textures/gameboy_quest/controller/face_buttons/circle_unpressed.tres" id="11_v6hbe"]
+[ext_resource type="Texture2D" uid="uid://ccq1ttbiacln3" path="res://resources/textures/gameboy_quest/controller/face_buttons/circle_pressed.tres" id="12_c23as"]
+[ext_resource type="Texture2D" uid="uid://dkjxo5tiyw13k" path="res://resources/textures/gameboy_quest/controller/sticks/stick_center.tres" id="12_ibx1q"]
+[ext_resource type="Texture2D" uid="uid://cuagywoy0wl74" path="res://resources/textures/gameboy_quest/controller/sticks/stick_up.tres" id="13_dubmp"]
+[ext_resource type="Texture2D" uid="uid://bfv7o4omuem4h" path="res://resources/textures/gameboy_quest/controller/face_buttons/triangle_unpressed.tres" id="13_js5sb"]
+[ext_resource type="Texture2D" uid="uid://c5vkka12ds747" path="res://resources/textures/gameboy_quest/controller/face_buttons/triangle_pressed.tres" id="14_8m0au"]
+[ext_resource type="Texture2D" uid="uid://b0rk1vj8kaqnt" path="res://resources/textures/gameboy_quest/empty_panel.tres" id="15_eg04f"]
+[ext_resource type="Texture2D" uid="uid://b8ox73a8aguav" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_unpressed.tres" id="15_udkra"]
+[ext_resource type="Texture2D" uid="uid://veoaiollu1at" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_r2_pressed.tres" id="16_eg04f"]
+[ext_resource type="Texture2D" uid="uid://bu28mcefeonfg" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_r1_unpressed.tres" id="18_n4w03"]
+[ext_resource type="Texture2D" uid="uid://c7hwq5kii8ls4" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_r1_pressed.tres" id="19_m17th"]
+[ext_resource type="Texture2D" uid="uid://c15icvmd0mk04" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_unpressed.tres" id="20_odwiy"]
+[ext_resource type="Texture2D" uid="uid://cedsahodqnriy" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/trigger_l2_pressed.tres" id="21_tydb4"]
+[ext_resource type="Texture2D" uid="uid://df6s40aa5uhxf" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_l1_unpressed.tres" id="22_duu5k"]
+[ext_resource type="Texture2D" uid="uid://cmhe0wnxctvgt" path="res://resources/textures/gameboy_quest/controller/triggers_bumpers/bumper_l1_pressed.tres" id="23_earyy"]
 
 [sub_resource type="Resource" id="Resource_prmrj"]
 script = ExtResource("2_naeuw")
@@ -57,15 +74,44 @@ layout_mode = 2
 text = "Current String: D String"
 label_settings = ExtResource("5_ulvgi")
 
-[node name="NextBowDirection" type="Label" parent="Table/StateLabels" unique_id=498480173]
+[node name="BowDirBox" type="HBoxContainer" parent="Table/StateLabels" unique_id=2086849711]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Move down!"
+
+[node name="DpadGlyph" type="TextureRect" parent="Table/StateLabels/BowDirBox" unique_id=2033802192]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 2
+texture = ExtResource("6_m17th")
+expand_mode = 2
+script = ExtResource("7_odwiy")
+down_unpressed = ExtResource("6_m17th")
+down_pressed = ExtResource("8_earyy")
+up_unpressed = ExtResource("9_m0ude")
+up_pressed = ExtResource("10_ibx1q")
+
+[node name="StickGlyph" type="TextureRect" parent="Table/StateLabels/BowDirBox" unique_id=1208647658]
+modulate = Color(1, 1, 1, 0.5019608)
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("6_n4w03")
+expand_mode = 4
+script = ExtResource("7_odwiy")
+down_unpressed = ExtResource("12_ibx1q")
+down_pressed = ExtResource("6_n4w03")
+up_unpressed = ExtResource("12_ibx1q")
+up_pressed = ExtResource("13_dubmp")
+needsAdjustment = true
+
+[node name="NextBowDirection" type="Label" parent="Table/StateLabels/BowDirBox" unique_id=498480173]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "  Move down!"
 label_settings = ExtResource("5_ulvgi")
 
 [node name="StringInputs" type="HBoxContainer" parent="Table" unique_id=408087414]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 12
 alignment = 1
 metadata/_edit_lock_ = true
 
@@ -74,15 +120,20 @@ layout_mode = 2
 size_flags_horizontal = 2
 alignment = 1
 
-[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringG" unique_id=742630505]
+[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringG" unique_id=912419548]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("8_ulvgi")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 0
+texture = ExtResource("6_ulvgi")
+expand_mode = 4
+script = ExtResource("6_ayiei")
 input_action = &"violin_open_g"
 additional_actions = Array[StringName]([&"violin_open_d", &"violin_open_a", &"violin_open_e"])
 mode = "RadioToggle"
+unpressed_texture = ExtResource("6_ulvgi")
+pressed_texture = ExtResource("8_ddxhb")
+press_action = &"violin_open_g"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
 [node name="Label" type="Label" parent="Table/StringInputs/StringG" unique_id=562340007]
 layout_mode = 2
@@ -95,16 +146,21 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringD" unique_id=688591600]
+[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringD" unique_id=976891807]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("9_ddxhb")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 3
+texture = ExtResource("9_3bq7n")
+expand_mode = 2
+script = ExtResource("6_ayiei")
 input_action = &"violin_open_d"
 additional_actions = Array[StringName]([&"violin_open_g", &"violin_open_a", &"violin_open_e"])
 mode = "RadioToggle"
-active = true
+unpressed_texture = ExtResource("9_3bq7n")
+pressed_texture = ExtResource("10_8a2un")
+press_action = &"violin_open_d"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
 [node name="Label" type="Label" parent="Table/StringInputs/StringD" unique_id=384704693]
 layout_mode = 2
@@ -116,15 +172,20 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringA" unique_id=1546889726]
+[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringA" unique_id=1713956201]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("10_3bq7n")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 0
+texture = ExtResource("11_v6hbe")
+expand_mode = 4
+script = ExtResource("6_ayiei")
 input_action = &"violin_open_a"
 additional_actions = Array[StringName]([&"violin_open_g", &"violin_open_d", &"violin_open_e"])
 mode = "RadioToggle"
+unpressed_texture = ExtResource("11_v6hbe")
+pressed_texture = ExtResource("12_c23as")
+press_action = &"violin_open_a"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
 [node name="Label" type="Label" parent="Table/StringInputs/StringA" unique_id=740664060]
 layout_mode = 2
@@ -136,15 +197,20 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 
-[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringE" unique_id=1086399165]
+[node name="Glyph" type="TextureRect" parent="Table/StringInputs/StringE" unique_id=2145829709]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("11_8a2un")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 0
+texture = ExtResource("13_js5sb")
+expand_mode = 4
+script = ExtResource("6_ayiei")
 input_action = &"violin_open_e"
 additional_actions = Array[StringName]([&"violin_open_g", &"violin_open_d", &"violin_open_a"])
 mode = "RadioToggle"
+unpressed_texture = ExtResource("13_js5sb")
+pressed_texture = ExtResource("14_8m0au")
+press_action = &"violin_open_e"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
 [node name="Label" type="Label" parent="Table/StringInputs/StringE" unique_id=662979085]
 layout_mode = 2
@@ -153,80 +219,119 @@ label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 
 [node name="FingerOutputs" type="HBoxContainer" parent="Table" unique_id=190637109]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 16
 metadata/_edit_lock_ = true
 
-[node name="Bottom" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1189791981]
+[node name="Open" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1189791981]
 layout_mode = 2
 
-[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Bottom" unique_id=1391903482]
+[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Open" unique_id=650664863]
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("4_arapv")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 3
+texture = ExtResource("15_eg04f")
+expand_mode = 2
+
+[node name="Output" type="Label" parent="Table/FingerOutputs/Open" unique_id=451133027]
+layout_mode = 2
+text = "D4"
+label_settings = ExtResource("5_ulvgi")
+horizontal_alignment = 1
+script = ExtResource("10_07r4r")
+use_open_instead = true
+
+[node name="First2" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=373135575]
+layout_mode = 2
+
+[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/First2" unique_id=1430090403]
+modulate = Color(1, 1, 1, 0.5019608)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("15_udkra")
+expand_mode = 2
+script = ExtResource("6_ayiei")
 input_action = &"violin_finger_first"
+unpressed_texture = ExtResource("15_udkra")
+pressed_texture = ExtResource("16_eg04f")
+press_action = &"violin_finger_first"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
-[node name="Output" type="Label" parent="Table/FingerOutputs/Bottom" unique_id=451133027]
+[node name="Output" type="Label" parent="Table/FingerOutputs/First2" unique_id=1344848186]
 layout_mode = 2
-text = "C4"
+text = "E4"
 label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 
-[node name="Left" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1358886690]
+[node name="Second" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1358886690]
 layout_mode = 2
 
-[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Left" unique_id=482329346]
+[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Second" unique_id=934926831]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("6_q4hjk")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 3
+texture = ExtResource("18_n4w03")
+expand_mode = 2
+script = ExtResource("6_ayiei")
 input_action = &"violin_finger_second"
+unpressed_texture = ExtResource("18_n4w03")
+pressed_texture = ExtResource("19_m17th")
+press_action = &"violin_finger_second"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
-[node name="Output" type="Label" parent="Table/FingerOutputs/Left" unique_id=226896137]
+[node name="Output" type="Label" parent="Table/FingerOutputs/Second" unique_id=226896137]
 layout_mode = 2
-text = "G4"
+text = "F#4"
 label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 finger_pos = "violin_finger_second"
 
-[node name="Right" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1987437389]
+[node name="Third" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1987437389]
 layout_mode = 2
 
-[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Right" unique_id=2020023294]
+[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Third" unique_id=718319164]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("6_07r4r")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 3
+texture = ExtResource("20_odwiy")
+expand_mode = 2
+script = ExtResource("6_ayiei")
 input_action = &"violin_finger_third"
+unpressed_texture = ExtResource("20_odwiy")
+pressed_texture = ExtResource("21_tydb4")
+press_action = &"violin_finger_third"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
-[node name="Output" type="Label" parent="Table/FingerOutputs/Right" unique_id=1580340747]
+[node name="Output" type="Label" parent="Table/FingerOutputs/Third" unique_id=1580340747]
 layout_mode = 2
-text = "C5"
+text = "G4"
 label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")
 finger_pos = "violin_finger_third"
 
-[node name="Top" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1665615553]
+[node name="Fourth" type="VBoxContainer" parent="Table/FingerOutputs" unique_id=1665615553]
 layout_mode = 2
 
-[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Top" unique_id=2045546078]
+[node name="Glyph" type="TextureRect" parent="Table/FingerOutputs/Fourth" unique_id=1007357294]
+modulate = Color(1, 1, 1, 0.5019608)
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("7_n2x4w")
-stretch_mode = 3
-script = ExtResource("5_q4hjk")
+size_flags_vertical = 3
+texture = ExtResource("22_duu5k")
+expand_mode = 2
+script = ExtResource("6_ayiei")
 input_action = &"violin_finger_fourth"
+unpressed_texture = ExtResource("22_duu5k")
+pressed_texture = ExtResource("23_earyy")
+press_action = &"violin_finger_fourth"
+metadata/_custom_type_script = "uid://coleee0gj2n40"
 
-[node name="Output" type="Label" parent="Table/FingerOutputs/Top" unique_id=1021751117]
+[node name="Output" type="Label" parent="Table/FingerOutputs/Fourth" unique_id=1021751117]
 layout_mode = 2
-text = "E5"
+text = "A4"
 label_settings = ExtResource("5_ulvgi")
 horizontal_alignment = 1
 script = ExtResource("10_07r4r")

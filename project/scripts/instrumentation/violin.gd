@@ -23,7 +23,7 @@ static var finger_position_values: Dictionary[String, int] = {
 @export var finger_position_modifier: int = 0
 
 @onready var string_label: Label = $Table/StateLabels/CurrentString
-@onready var bow_dir_label: Label = $Table/StateLabels/NextBowDirection
+@onready var bow_dir_label: Label = $Table/StateLabels/BowDirBox/NextBowDirection
 
 
 func _process(_delta: float) -> void:
