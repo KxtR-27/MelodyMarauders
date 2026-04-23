@@ -7,8 +7,8 @@ static var Notes := Note.Notes
 static var EMBOUCHURE_INPUT_MAP: Dictionary[String, Note] = {
 	"trumpet_open_bottom": Note.new(Notes.C, 4),
 	"trumpet_open_left": Note.new(Notes.G, 4),
-	"trumpet_open_right": Note.new(Notes.C, 5), 
-	"trumpet_open_top": Note.new(Notes.E, 5),
+	"trumpet_open_top": Note.new(Notes.C, 5),
+	"trumpet_open_right": Note.new(Notes.E, 5), 
 }
 
 # keys are valve combos, values are how they bend the note

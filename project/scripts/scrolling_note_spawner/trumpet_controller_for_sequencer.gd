@@ -10,8 +10,8 @@ static var Notes := Note.Notes
 static var EMBOUCHURE_INPUT_MAP: Dictionary[String, int] = {
 	"trumpet_open_bottom": 0,
 	"trumpet_open_left": 1,
-	"trumpet_open_right": 2, 
-	"trumpet_open_top": 3,
+	"trumpet_open_top": 2,
+	"trumpet_open_right": 3, 
 }
 
 static var PITCH_MAP : Dictionary = {

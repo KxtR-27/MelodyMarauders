@@ -84,28 +84,28 @@ unpressed_texture = ExtResource("6_qm7ip")
 pressed_texture = ExtResource("7_8pwaw")
 press_action = &"trumpet_valve_one"
 
-[node name="Valve2" type="TextureRect" parent="Table/ValvesInputs" unique_id=1222276613]
-modulate = Color(1, 1, 1, 0.5)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("9_8wnik")
-expand_mode = 2
-script = ExtResource("7_g255g")
-input_action = &"trumpet_valve_two"
-unpressed_texture = ExtResource("9_8wnik")
-pressed_texture = ExtResource("9_8pwaw")
-press_action = &"trumpet_valve_two"
-
-[node name="Valve3" type="TextureRect" parent="Table/ValvesInputs" unique_id=1191850459]
+[node name="Valve2" type="TextureRect" parent="Table/ValvesInputs" unique_id=1191850459]
 modulate = Color(1, 1, 1, 0.5)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("10_8wnik")
 expand_mode = 2
 script = ExtResource("7_g255g")
-input_action = &"trumpet_valve_three"
+input_action = &"trumpet_valve_two"
 unpressed_texture = ExtResource("10_8wnik")
 pressed_texture = ExtResource("11_oxong")
+press_action = &"trumpet_valve_two"
+
+[node name="Valve3" type="TextureRect" parent="Table/ValvesInputs" unique_id=1222276613]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_8wnik")
+expand_mode = 2
+script = ExtResource("7_g255g")
+input_action = &"trumpet_valve_three"
+unpressed_texture = ExtResource("9_8wnik")
+pressed_texture = ExtResource("9_8pwaw")
 press_action = &"trumpet_valve_three"
 
 [node name="EmbouchureOutputs" type="HBoxContainer" parent="Table" unique_id=477769481]
@@ -161,30 +161,6 @@ text = "G4"
 label_settings = ExtResource("4_g255g")
 horizontal_alignment = 1
 
-[node name="Right" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1225398794]
-layout_mode = 2
-script = ExtResource("5_vuu8e")
-embouchure = "trumpet_open_right"
-
-[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Right" unique_id=309885910]
-modulate = Color(1, 1, 1, 0.5)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-texture = ExtResource("18_qftfx")
-expand_mode = 2
-script = ExtResource("7_g255g")
-input_action = &"trumpet_open_right"
-unpressed_texture = ExtResource("18_qftfx")
-pressed_texture = ExtResource("19_sv57g")
-press_action = &"trumpet_open_right"
-
-[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Right" unique_id=989723030]
-layout_mode = 2
-text = "C5"
-label_settings = ExtResource("4_g255g")
-horizontal_alignment = 1
-
 [node name="Top" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1875877870]
 layout_mode = 2
 script = ExtResource("5_vuu8e")
@@ -204,6 +180,30 @@ pressed_texture = ExtResource("21_amcu6")
 press_action = &"trumpet_open_top"
 
 [node name="Output" type="Label" parent="Table/EmbouchureOutputs/Top" unique_id=955591665]
+layout_mode = 2
+text = "C5"
+label_settings = ExtResource("4_g255g")
+horizontal_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="Table/EmbouchureOutputs" unique_id=1225398794]
+layout_mode = 2
+script = ExtResource("5_vuu8e")
+embouchure = "trumpet_open_right"
+
+[node name="Glyph" type="TextureRect" parent="Table/EmbouchureOutputs/Right" unique_id=309885910]
+modulate = Color(1, 1, 1, 0.5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("18_qftfx")
+expand_mode = 2
+script = ExtResource("7_g255g")
+input_action = &"trumpet_open_right"
+unpressed_texture = ExtResource("18_qftfx")
+pressed_texture = ExtResource("19_sv57g")
+press_action = &"trumpet_open_right"
+
+[node name="Output" type="Label" parent="Table/EmbouchureOutputs/Right" unique_id=989723030]
 layout_mode = 2
 text = "E5"
 label_settings = ExtResource("4_g255g")
