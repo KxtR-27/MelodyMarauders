@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://baa77sy5wyiwy" path="res://scripts/scrolling_note_spawner/scrolling_staff_generator.gd" id="1_5b86b"]
 [ext_resource type="Script" uid="uid://cc74qymmpgsf" path="res://scripts/music_maker/amy_manager.gd" id="2_c2h7a"]
-[ext_resource type="Script" uid="uid://bwfnt1f18snnm" path="res://scenes/scrolling_notes_spawner/staff_minigame.gd" id="2_fk3p3"]
-[ext_resource type="PackedScene" uid="uid://dcu86gj7wl1c" path="res://scenes/scrolling_notes_spawner/trumpet_controller_for_sequencer.tscn" id="3_c2h7a"]
-[ext_resource type="Texture2D" uid="uid://b2sfe3meckvry" path="res://scenes/scrolling_notes_spawner/treble_small.png" id="5_045wt"]
-[ext_resource type="Script" uid="uid://cpq523y4hu1dv" path="res://scenes/scrolling_notes_spawner/note_pipe_container.gd" id="6_045wt"]
-[ext_resource type="Texture2D" uid="uid://cl1fijlv32rma" path="res://scenes/scrolling_notes_spawner/time signature.png" id="6_qnp1i"]
+[ext_resource type="Script" uid="uid://bwfnt1f18snnm" path="res://components/scrolling_notes_spawner/staff_minigame.gd" id="2_fk3p3"]
+[ext_resource type="PackedScene" uid="uid://dcu86gj7wl1c" path="res://components/scrolling_notes_spawner/trumpet_controller_for_sequencer.tscn" id="3_c2h7a"]
+[ext_resource type="Texture2D" uid="uid://b2sfe3meckvry" path="res://components/scrolling_notes_spawner/treble_small.png" id="5_045wt"]
+[ext_resource type="Script" uid="uid://cpq523y4hu1dv" path="res://components/scrolling_notes_spawner/note_pipe_container.gd" id="6_045wt"]
+[ext_resource type="Texture2D" uid="uid://cl1fijlv32rma" path="res://components/scrolling_notes_spawner/time signature.png" id="6_qnp1i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2h7a"]
 size = Vector2(20, 350)

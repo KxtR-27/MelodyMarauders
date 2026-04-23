@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dqtpe5istaaw6"
-path="res://.godot/imported/PressStart2P-Regular.ttf-5ef771da5421969dbfdd021be2372282.fontdata"
+path="res://.godot/imported/PressStart2P-Regular.ttf-ea9ed1014ceacd88949d667a5c10e2a7.fontdata"
 
 [deps]
 
-source_file="res://scenes/defense_minigame/PressStart2P-Regular.ttf"
-dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-5ef771da5421969dbfdd021be2372282.fontdata"]
+source_file="res://components/defense_minigame/PressStart2P-Regular.ttf"
+dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-ea9ed1014ceacd88949d667a5c10e2a7.fontdata"]
 
 [params]
 

@@ -2,7 +2,7 @@ extends State
 class_name PlayerAttack
 
 
-static var sequencer_scene: PackedScene = preload("res://scenes/scrolling_notes_spawner/scrolling_staff_generator.tscn")
+static var sequencer_scene: PackedScene = preload("res://components/scrolling_notes_spawner/scrolling_staff_generator.tscn")
 
 static var song_scene: Song = preload("res://resources/hot cross buns.tres")
 

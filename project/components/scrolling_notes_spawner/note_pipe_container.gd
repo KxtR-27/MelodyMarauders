@@ -1,6 +1,6 @@
 class_name NotePipeContainer extends VBoxContainer
 
-const PIPE_PATH := preload("res://scenes/scrolling_notes_spawner/note_pipe.tscn")
+const PIPE_PATH := preload("res://components/scrolling_notes_spawner/note_pipe.tscn")
 
 var note_list : Array = [
 	["A", 5],

@@ -2,7 +2,7 @@
 extends Node
 
 @export var scenes: Array[PackedScene] = [
-	preload("res://scenes/main.tscn"),
+	preload("res://main.tscn"),
 	preload("res://components/instrumentation/violin.tscn"),
 	preload("res://components/instrumentation/trumpet.tscn"),
 ]

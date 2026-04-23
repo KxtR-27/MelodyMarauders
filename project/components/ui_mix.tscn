@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://uhsnmxsqn237"]
 
 [ext_resource type="Script" uid="uid://btxh0ktbyasvb" path="res://scripts/state_machine.gd" id="2_1coue"]
-[ext_resource type="PackedScene" uid="uid://66uyqv601b5e" path="res://scenes/hpmpbar.tscn" id="2_g847m"]
+[ext_resource type="PackedScene" uid="uid://66uyqv601b5e" path="res://components/hpmpbar.tscn" id="2_g847m"]
 [ext_resource type="Texture2D" uid="uid://bj4c3g5fypha1" path="res://assets/icons/fire.png" id="2_hngcd"]
 [ext_resource type="Script" uid="uid://bfrg4wuf2mcqb" path="res://scripts/enemy.gd" id="2_s5bb2"]
 [ext_resource type="Script" uid="uid://dwao5v14tg6be" path="res://scripts/player_attack.gd" id="3_tw7ia"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://dgb603ic60bhb" path="res://scripts/boss_attack.gd" id="5_1okau"]
 [ext_resource type="Texture2D" uid="uid://bwiymv3rw26cc" path="res://assets/musistaff.png" id="5_5tgd8"]
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/Move_Attack.gd" id="6_8pnm2"]
-[ext_resource type="PackedScene" uid="uid://ctwd7potyweht" path="res://scenes/battle_menu_navigation.tscn" id="6_v7pk5"]
+[ext_resource type="PackedScene" uid="uid://ctwd7potyweht" path="res://components/battle_menu_navigation.tscn" id="6_v7pk5"]
 [ext_resource type="Resource" uid="uid://cn5g8hbrb4qca" path="res://assets/moves/midnight_sonata.tres" id="7_1coue"]
 [ext_resource type="Texture2D" uid="uid://bg1cey8814yks" path="res://resources/textures/gameboy_quest/player_icon.tres" id="7_w8dc6"]
 [ext_resource type="Resource" uid="uid://cu4tjgdyuqdt2" path="res://assets/moves/concierto_for_triangle.tres" id="8_tw7ia"]
@@ -138,6 +138,3 @@ offset_bottom = 117.0
 bar_owner = NodePath("../Player2")
 
 [connection signal="enemy_took_damage" from="Enemy" to="Enemy/EnemyHP/HPvalue" method="_on_enemy_enemy_took_damage"]
-[connection signal="attack_enemy" from="BattleMenuNavigation" to="Enemy" method="_on_battle_menu_navigation_attack_enemy"]
-[connection signal="mana_changed" from="BattleMenuNavigation" to="Player1HPMP" method="_on_battle_menu_navigation_mana_changed"]
-[connection signal="mana_changed" from="BattleMenuNavigation" to="Player2HPMP" method="_on_battle_menu_navigation_mana_changed"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6dbqgjofcma4"]
 
-[ext_resource type="Script" uid="uid://ceui7n63yqnme" path="res://scenes/move_button.gd" id="1_tkqq8"]
+[ext_resource type="Script" uid="uid://ceui7n63yqnme" path="res://components/move_button.gd" id="1_tkqq8"]
+
 
 [node name="Midnight_Sonata" type="Button" unique_id=1010283203]
 size_flags_horizontal = 0

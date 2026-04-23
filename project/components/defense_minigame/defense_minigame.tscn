@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://biy2wa06axetx"]
 
-[ext_resource type="Script" uid="uid://0qmbegoj81i0" path="res://scenes/defense_minigame/defense_minigame.gd" id="1_8dlb5"]
-[ext_resource type="FontFile" uid="uid://dqtpe5istaaw6" path="res://scenes/defense_minigame/PressStart2P-Regular.ttf" id="2_fyuav"]
+[ext_resource type="Script" uid="uid://0qmbegoj81i0" path="res://components/defense_minigame/defense_minigame.gd" id="1_8dlb5"]
+[ext_resource type="FontFile" uid="uid://dqtpe5istaaw6" path="res://components/defense_minigame/PressStart2P-Regular.ttf" id="2_fyuav"]
+
 
 [node name="DefenseMinigame" type="Node2D" unique_id=1760020349]
 script = ExtResource("1_8dlb5")

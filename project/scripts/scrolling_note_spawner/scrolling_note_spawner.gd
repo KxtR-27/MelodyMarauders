@@ -1,7 +1,7 @@
 class_name ScrollingNoteSpawner extends Node2D
 
 const OCTAVE_OFFSET : int = 5
-const SCROLLING_NOTE = preload("res://scenes/scrolling_notes_spawner/scrolling_note.tscn")
+const SCROLLING_NOTE = preload("res://components/scrolling_notes_spawner/scrolling_note.tscn")
 
 var offset_interval : float = 35.0
 var default_offset : float = offset_interval * 7

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b87xtdqhvivk6"
-path="res://.godot/imported/treble.png-bae94df4e0cdb0b9cd1edd610b8b9e38.ctex"
+uid="uid://cl1fijlv32rma"
+path="res://.godot/imported/time signature.png-ce32f3019b27a663f23b4241b8b503b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/scrolling_notes_spawner/treble.png"
-dest_files=["res://.godot/imported/treble.png-bae94df4e0cdb0b9cd1edd610b8b9e38.ctex"]
+source_file="res://components/scrolling_notes_spawner/time signature.png"
+dest_files=["res://.godot/imported/time signature.png-ce32f3019b27a663f23b4241b8b503b3.ctex"]
 
 [params]
 

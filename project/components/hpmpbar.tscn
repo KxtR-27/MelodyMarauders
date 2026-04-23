@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://66uyqv601b5e"]
 
-[ext_resource type="Script" uid="uid://cufqksi37q4cx" path="res://scenes/player_1hpmp.gd" id="1_ga2hq"]
+[ext_resource type="Script" uid="uid://cufqksi37q4cx" path="res://components/player_1hpmp.gd" id="1_ga2hq"]
 [ext_resource type="Texture2D" uid="uid://bg1cey8814yks" path="res://resources/textures/gameboy_quest/player_icon.tres" id="2_lvqj6"]
 [ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="3_l0myq"]
+
 
 [node name="Player1HPMP" type="Panel" unique_id=1726576926]
 offset_right = 325.0

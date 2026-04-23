@@ -1,6 +1,6 @@
 class_name NotePipe extends Control
 
-const SCROLLING_NOTE = preload("res://scenes/scrolling_notes_spawner/scrolling_note.tscn")
+const SCROLLING_NOTE = preload("res://components/scrolling_notes_spawner/scrolling_note.tscn")
 @onready var spawner : Control = $Spawner
 
 func spawn_note(beat : float, speed : int, bpm : int) -> ScrollingNote:

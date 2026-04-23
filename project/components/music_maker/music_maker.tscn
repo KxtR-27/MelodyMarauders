@@ -6,7 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://c3j7mlrs2smae" path="res://resources/music_maker/active.tres" id="3_k3gig"]
 [ext_resource type="Script" uid="uid://xb63l2lv4qge" path="res://scripts/music_maker/track_container.gd" id="3_r205u"]
 [ext_resource type="StyleBox" uid="uid://d1jbegjyts83i" path="res://resources/music_maker/inactive.tres" id="4_23yh4"]
-[ext_resource type="PackedScene" uid="uid://2lckys4dxg56" path="res://scenes/music_maker/incrementable_field.tscn" id="6_gl8qd"]
+[ext_resource type="PackedScene" uid="uid://2lckys4dxg56" path="res://components/music_maker/incrementable_field.tscn" id="6_gl8qd"]
 [ext_resource type="Script" uid="uid://djlwybbrbs34j" path="res://scripts/music_maker/editing_modes_container.gd" id="6_ibqgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ut5r"]

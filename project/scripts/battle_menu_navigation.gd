@@ -55,7 +55,7 @@ func _on_button_pressed() -> void:
 		child.free()
 		
 	for move: move_attack in currently_selected_player.moves:
-			var move_button: PackedScene = preload("res://scenes/move_button.tscn")
+			var move_button: PackedScene = preload("res://components/move_button.tscn")
 			var move_instance: MoveButton = move_button.instantiate()
 			move_instance.move_data = move
 			move_instance.text = move.NAME
