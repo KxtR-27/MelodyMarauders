@@ -76,7 +76,7 @@ func Physics_Update(_delta: float) -> void:
 	
 func _on_rest_used(player: Player) -> void:
 	print("rest used by ", player)
-	player.mana += 5
+	player.mana = min(player.mana + 5, player.max_mp)
 	print(player.mana)
 	batNavMenu.mana_changed.emit(player)
 	
