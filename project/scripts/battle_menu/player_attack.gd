@@ -67,8 +67,20 @@ func Update(_delta: float) -> void:
 		batNavMenu.mana_changed.emit(batNavMenu.currently_selected_player)
 		
 		var accuracy: float = await _use_sequencer()
+		var damage_dealt_to_enemy := batNavMenu.currently_selected_move.DMG * accuracy
+		batNavMenu.attack_enemy.emit(damage_dealt_to_enemy)
 		
-		batNavMenu.attack_enemy.emit(batNavMenu.currently_selected_move.DMG * accuracy)
+		# globals that are not scripts are weakly typed.
+		# autocomplete knows that SfxManager is typed,
+		#  but GDScript's linter does not.
+		@warning_ignore_start("unsafe_method_access")
+		var did_damage := damage_dealt_to_enemy > 0
+		if did_damage:
+			SfxManager.play_hit_sound()
+		else:
+			SfxManager.play_defend_sound()
+		@warning_ignore_restore("unsafe_method_access")
+		
 		batNavMenu.note_list.visible = false
 		
 		can_spawn_minigame = true

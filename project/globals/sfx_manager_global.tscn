@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dhb4cisdegsq4"]
+
+[ext_resource type="Script" uid="uid://bdm7mujwpihvk" path="res://globals/sfx_manager_global.gd" id="1_mimcr"]
+
+[node name="SfxManagerGlobal" type="Node" unique_id=1288464967]
+script = ExtResource("1_mimcr")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1675648707]
