@@ -6,6 +6,7 @@ class_name BattleNavMenu
 signal attack_enemy(damage: float)
 signal mana_changed(player_who_lost_mana: Player)
 signal rest_used(player: Player)
+signal heal(heal: float)
 @warning_ignore_restore("unused_signal")
 
 @export var midnight_sonata: Button

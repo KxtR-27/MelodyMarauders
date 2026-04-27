@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/battle_menu/Move_Attack.gd" id="1_rsjet"]
 
-
 [resource]
 script = ExtResource("1_rsjet")
 NAME = "Song of Healing"
-mana_value = 2
-move_description = "Heals ally. If perfect, heals self also."
+mana_value = 5
+HEAL = 5.0
+move_description = "Heal self for 5 health"
 metadata/_custom_type_script = "uid://6u7lbu2fdt12"

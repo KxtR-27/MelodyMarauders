@@ -67,14 +67,30 @@ func Update(_delta: float) -> void:
 		batNavMenu.mana_changed.emit(batNavMenu.currently_selected_player)
 		
 		var accuracy: float = await _use_sequencer()
-		var damage_dealt_to_enemy := batNavMenu.currently_selected_move.DMG * accuracy
+		var move = batNavMenu.currently_selected_move
+		var player = batNavMenu.currently_selected_player
+		
+		#batNavMenu.currently_selected_player.heal(batNavMenu.currently_selected_move.HEAL * accuracy)
+		#var damage_dealt_to_enemy := batNavMenu.currently_selected_move.DMG * accuracy
+		#batNavMenu.attack_enemy.emit(damage_dealt_to_enemy)
+		
+		if move.HEAL > 0:
+			var heal_amount := int(move.HEAL * accuracy)
+			player.heal(heal_amount)
+
+		if move.BUFF_DAMAGE > 0:
+			var buff_amount : float= max(1, int(move.BUFF_DAMAGE * accuracy))
+			for p in [batNavMenu.player1, batNavMenu.player2]:
+				p.damage_bonus += buff_amount
+
+		var damage_dealt_to_enemy : float= (move.DMG + player.damage_bonus) * accuracy
 		batNavMenu.attack_enemy.emit(damage_dealt_to_enemy)
 		
 		# globals that are not scripts are weakly typed.
 		# autocomplete knows that SfxManager is typed,
 		#  but GDScript's linter does not.
 		@warning_ignore_start("unsafe_method_access")
-		var did_damage := damage_dealt_to_enemy > 0
+		var did_damage :float = damage_dealt_to_enemy > 0
 		if did_damage:
 			SfxManager.play_hit_sound()
 		else:

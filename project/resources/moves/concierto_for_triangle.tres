@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/battle_menu/Move_Attack.gd" id="1_g53s0"]
 
-
 [resource]
 script = ExtResource("1_g53s0")
 NAME = "Concierto For Triangle"
-DMG = 10.0
-mana_value = 3
-move_description = "Player must hit one tricky note. If the tricky note is hit, stun 1 enemy"
+DMG = 8.0
+mana_value = 10
+move_description = "High damage and cost attack"
 metadata/_custom_type_script = "uid://6u7lbu2fdt12"

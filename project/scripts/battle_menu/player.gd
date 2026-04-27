@@ -15,8 +15,13 @@ extends Sprite2D
 
 @onready var max_hp: int = health
 @onready var max_mp: int = mana
+var damage_bonus: int = 0
 
 signal health_changed(player: Player)
+
+func heal(amount: int) -> void:
+	health = min(health + amount, max_hp)
+	health_changed.emit(self)
 
 
 func take_damage(amount: int) -> void:

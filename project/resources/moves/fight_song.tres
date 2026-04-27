@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/battle_menu/Move_Attack.gd" id="1_wu8su"]
 
-
 [resource]
 script = ExtResource("1_wu8su")
 NAME = "Fight Song"
-mana_value = 3
-move_description = "Buffs target. If perfect, buffs additional target"
+mana_value = 10
+BUFF_DAMAGE = 1.0
+move_description = "Gives a 1 damage buff to all charachters for the enitre fight (Max stack of 2)"
 metadata/_custom_type_script = "uid://6u7lbu2fdt12"
