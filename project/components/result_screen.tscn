@@ -54,3 +54,23 @@ theme_override_font_sizes/font_size = 64
 text = "You win!"
 label_settings = SubResource("LabelSettings_q687i")
 horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainControl" unique_id=1842459072]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 126.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MainControl/HBoxContainer" unique_id=417972336]
+z_index = 17
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Play Again"
+
+[connection signal="button_down" from="MainControl/HBoxContainer/Button" to="." method="_on_button_button_down"]

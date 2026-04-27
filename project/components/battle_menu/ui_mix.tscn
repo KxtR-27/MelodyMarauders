@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://btxh0ktbyasvb" path="res://scripts/battle_menu/state_machine.gd" id="2_1coue"]
 [ext_resource type="Script" uid="uid://dwao5v14tg6be" path="res://scripts/battle_menu/player_attack.gd" id="2_2rajg"]
 [ext_resource type="PackedScene" uid="uid://66uyqv601b5e" path="res://components/battle_menu/hpmpbar.tscn" id="2_g847m"]
-[ext_resource type="Texture2D" uid="uid://bj4c3g5fypha1" path="res://assets/images/fire.png" id="2_hngcd"]
-[ext_resource type="Texture2D" uid="uid://d0l4ili1w1s8b" path="res://assets/images/sleep-mhw-status-effect.png" id="3_u20u5"]
-[ext_resource type="Texture2D" uid="uid://54jlj7udvc24" path="res://assets/images/Poison_JE3_BE2.png" id="4_klmld"]
+[ext_resource type="Texture2D" uid="uid://cc23wu0osq7pn" path="res://assets/images/fire.png" id="2_hngcd"]
+[ext_resource type="Texture2D" uid="uid://biqdatn8ogffq" path="res://assets/images/sleep-mhw-status-effect.png" id="3_u20u5"]
+[ext_resource type="Texture2D" uid="uid://jv621m84pjns" path="res://assets/images/Poison_JE3_BE2.png" id="4_klmld"]
 [ext_resource type="Script" uid="uid://dgb603ic60bhb" path="res://scripts/battle_menu/boss_attack.gd" id="5_1okau"]
 [ext_resource type="Script" uid="uid://cqqic6rv6vr0c" path="res://scripts/battle_menu/player.gd" id="5_sig0y"]
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/battle_menu/Move_Attack.gd" id="6_2aenj"]
@@ -20,6 +20,43 @@
 [ext_resource type="Resource" uid="uid://d0i4m88ge5gre" path="res://resources/moves/fight_song.tres" id="12_bhdlv"]
 [ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="16_w8dc6"]
 [ext_resource type="Texture2D" uid="uid://c8sh8l73jeqpg" path="res://resources/textures/enemy_icon.tres" id="17_2ioj6"]
+
+[sub_resource type="Animation" id="Animation_nlm3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_2aenj"]
+resource_name = "hurt_anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 16, 16), Rect2(16, 80, 16, 16), Rect2(32, 80, 16, 16), Rect2(48, 80, 16, 16), Rect2(0, 80, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt45v"]
+_data = {
+&"RESET": SubResource("Animation_nlm3i"),
+&"hurt_anim": SubResource("Animation_2aenj")
+}
 
 [node name="UiMix" type="Node2D" unique_id=195094249]
 
@@ -45,7 +82,7 @@ script = ExtResource("5_sig0y")
 strength = 2
 mana = 15
 health = 10
-moves = Array[ExtResource("6_2aenj")]([ExtResource("7_nt45v"), ExtResource("8_amt7q"), ExtResource("9_323y1")])
+moves = Array[ExtResource("6_2aenj")]([ExtResource("8_amt7q"), ExtResource("10_kna4a"), ExtResource("12_bhdlv")])
 
 [node name="Player2" type="Sprite2D" parent="." unique_id=181280006]
 position = Vector2(219, 476)
@@ -54,7 +91,7 @@ texture = ExtResource("7_w8dc6")
 script = ExtResource("5_sig0y")
 mana = 11
 health = 10
-moves = Array[ExtResource("6_2aenj")]([ExtResource("10_kna4a"), ExtResource("11_jterj"), ExtResource("12_bhdlv")])
+moves = Array[ExtResource("6_2aenj")]([ExtResource("7_nt45v"), ExtResource("11_jterj"), ExtResource("9_323y1")])
 
 [node name="Enemy" type="Sprite2D" parent="." unique_id=1723623278]
 position = Vector2(1035, 495)
@@ -85,6 +122,9 @@ autowrap_mode = 2
 position = Vector2(188, 20)
 scale = Vector2(4, 4)
 texture = ExtResource("17_2ioj6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy" unique_id=254661287]
+libraries/ = SubResource("AnimationLibrary_nt45v")
 
 [node name="BattleMenuNavigation" parent="." unique_id=1690783701 node_paths=PackedStringArray("player1", "player2", "enemy", "player_1_hp_mp", "player_2_hp_mp") instance=ExtResource("6_v7pk5")]
 offset_left = 1.0
@@ -132,6 +172,7 @@ offset_top = 65.0
 offset_bottom = 117.0
 bar_owner = NodePath("../Player2")
 
+[connection signal="boss_hurt" from="StateMachine/PlayerAttack" to="Enemy" method="_on_player_attack_boss_hurt"]
 [connection signal="enemy_took_damage" from="Enemy" to="Enemy/EnemyHP/HPvalue" method="_on_enemy_enemy_took_damage"]
 [connection signal="attack_enemy" from="BattleMenuNavigation" to="Enemy" method="_on_battle_menu_navigation_attack_enemy"]
 [connection signal="mana_changed" from="BattleMenuNavigation" to="Player1HPMP" method="_on_battle_menu_navigation_mana_changed"]

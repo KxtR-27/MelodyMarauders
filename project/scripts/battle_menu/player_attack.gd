@@ -10,6 +10,7 @@ static var song_scene: Song = preload("res://resources/hot cross buns.tres")
 
 var can_spawn_minigame : bool = true
 
+signal boss_hurt
 
 func Enter() -> void:
 	print("I am in the PlayerAttack STate right now")
@@ -39,7 +40,9 @@ func Enter() -> void:
 		
 	if !batNavMenu.rest_used.is_connected(_on_rest_used):
 		batNavMenu.rest_used.connect(_on_rest_used)
-	
+		
+	if !batNavMenu.run_used.is_connected(_on_run_used):
+		batNavMenu.run_used.connect(_on_run_used)
 
 
 func Exit() -> void:
@@ -95,6 +98,7 @@ func Update(_delta: float) -> void:
 		var did_damage :float = damage_dealt_to_enemy > 0
 		if did_damage:
 			SfxManager.play_hit_sound()
+			boss_hurt.emit()
 		else:
 			SfxManager.play_defend_sound()
 		@warning_ignore_restore("unsafe_method_access")
@@ -115,6 +119,14 @@ func Update(_delta: float) -> void:
 func Physics_Update(_delta: float) -> void:
 	pass
 	
+	
+func _on_run_used(player: Player) -> void:
+	if player == batNavMenu.player1:
+		batNavMenu.currently_selected_player = batNavMenu.player2
+		batNavMenu.reset_battle_menu()
+	else:
+		Transitioned.emit(self, "BossAttack")
+
 func _on_rest_used(player: Player) -> void:
 	print("rest used by ", player)
 	player.mana = min(player.mana + 5, player.max_mp)
