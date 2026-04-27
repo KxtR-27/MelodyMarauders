@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://c4ogyy7esvhra"
+path="res://.godot/imported/defend.sfxr-5699c39e0d77c990773a783e6a4a6e9e.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/defend.sfxr"
+dest_files=["res://.godot/imported/defend.sfxr-5699c39e0d77c990773a783e6a4a6e9e.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

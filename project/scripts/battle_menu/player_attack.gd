@@ -66,7 +66,9 @@ func Update(_delta: float) -> void:
 		batNavMenu.currently_selected_player.mana -= batNavMenu.currently_selected_move.mana_value
 		batNavMenu.mana_changed.emit(batNavMenu.currently_selected_player)
 		
+		(SfxManager as SfxManagerGlobal).music_player.quiet()
 		var accuracy: float = await _use_sequencer()
+		(SfxManager as SfxManagerGlobal).music_player.loud()
 		var move := batNavMenu.currently_selected_move
 		var player := batNavMenu.currently_selected_player
 		

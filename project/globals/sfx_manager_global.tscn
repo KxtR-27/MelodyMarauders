@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://dhb4cisdegsq4"]
 
 [ext_resource type="Script" uid="uid://bdm7mujwpihvk" path="res://globals/sfx_manager_global.gd" id="1_mimcr"]
+[ext_resource type="Script" uid="uid://dlf246sqy4ry6" path="res://globals/sfx_manager_musicplayer.gd" id="2_mimcr"]
+[ext_resource type="AudioStream" uid="uid://skubvahl24r2" path="res://assets/audio/music/xDeviruchi - Prepare for Battle! (Intro).wav" id="3_mihww"]
+[ext_resource type="AudioStream" uid="uid://c41dl403qmj2s" path="res://assets/audio/music/xDeviruchi - Prepare for Battle! (Loop).wav" id="4_sqgv7"]
+[ext_resource type="AudioStream" uid="uid://d0ujcyg6wlme8" path="res://assets/audio/music/xDeviruchi - Prepare for Battle! (End).wav" id="5_hrkv0"]
 
 [node name="SfxManagerGlobal" type="Node" unique_id=1288464967]
 script = ExtResource("1_mimcr")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1675648707]
+stream = ExtResource("3_mihww")
+autoplay = true
+script = ExtResource("2_mimcr")
+quiet_volume = null
+loop_intro = ExtResource("3_mihww")
+loop_loop = ExtResource("4_sqgv7")
+loop_end = ExtResource("5_hrkv0")
+
+[connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="_on_finished"]

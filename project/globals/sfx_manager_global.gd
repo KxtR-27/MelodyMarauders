@@ -9,12 +9,12 @@ enum SFX {
 }
 
 static var _sfx_map: Dictionary[SFX, AudioStream] = {
-	SFX.DEFEND: preload("res://assets/audio/defend.sfxr"),
-	SFX.HIT: preload("res://assets/audio/hit.sfxr"),
-	SFX.MISS: preload("res://assets/audio/miss.sfxr"),
+	SFX.DEFEND: preload("res://assets/audio/sfx/defend.sfxr"),
+	SFX.HIT: preload("res://assets/audio/sfx/hit.sfxr"),
+	SFX.MISS: preload("res://assets/audio/sfx/miss.sfxr"),
 }
 
-@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var music_player: SfxManagerMusicplayer = $MusicPlayer
 
 
 func play_sound(sound: SFX) -> void:

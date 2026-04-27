@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bly670m8431bb"
+path="res://.godot/imported/miss.sfxr-c0701b668ef212fa82ff3e33f9b7ff07.sample"
+
+[deps]
+
+source_file="res://assets/audio/sfx/miss.sfxr"
+dest_files=["res://.godot/imported/miss.sfxr-c0701b668ef212fa82ff3e33f9b7ff07.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
