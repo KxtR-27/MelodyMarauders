@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dieegotpqh44j"
-path="res://.godot/imported/dpad_left.png-3a659169df9624fe9ed207ab22a0d500.ctex"
+uid="uid://cn4u5glonw1q3"
+path="res://.godot/imported/box.png-474030470f011559657fa4320f1dfbc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/dpad_left.png"
-dest_files=["res://.godot/imported/dpad_left.png-3a659169df9624fe9ed207ab22a0d500.ctex"]
+source_file="res://resources/textures/box.png"
+dest_files=["res://.godot/imported/box.png-474030470f011559657fa4320f1dfbc4.ctex"]
 
 [params]
 

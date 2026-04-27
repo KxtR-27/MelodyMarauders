@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://b6dbqgjofcma4"]
 
+[ext_resource type="FontFile" uid="uid://didg68dnvv3um" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_7dg2r"]
 [ext_resource type="Script" uid="uid://ceui7n63yqnme" path="res://scripts/battle_menu/move_button.gd" id="1_tkqq8"]
 
-
 [node name="Midnight_Sonata" type="Button" unique_id=1010283203]
+custom_minimum_size = Vector2(250, 50)
 size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.83137256, 0.8235294, 0.60784316, 1)
+theme_override_fonts/font = ExtResource("1_7dg2r")
 theme_override_font_sizes/font_size = 12
 script = ExtResource("1_tkqq8")
