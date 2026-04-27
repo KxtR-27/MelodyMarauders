@@ -10,6 +10,7 @@ static var song_scene: Song = preload("res://resources/hot cross buns.tres")
 
 var can_spawn_minigame : bool = true
 
+signal boss_hurt
 
 func Enter() -> void:
 	print("I am in the PlayerAttack STate right now")
@@ -93,6 +94,7 @@ func Update(_delta: float) -> void:
 		var did_damage :float = damage_dealt_to_enemy > 0
 		if did_damage:
 			SfxManager.play_hit_sound()
+			boss_hurt.emit()
 		else:
 			SfxManager.play_defend_sound()
 		@warning_ignore_restore("unsafe_method_access")
