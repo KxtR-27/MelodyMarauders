@@ -137,7 +137,7 @@ func play_note(note : SequencerNote, tempo : int, added_delay_ms : int) -> void:
 	amy.send({
 		"synth" : instrument_ids[note.instrument], 
 		"note" : midi_note, 
-		"vel" : 1, 
+		"vel" : 4, 
 		"time" : start_delay_ms
 	})
 	
@@ -158,7 +158,7 @@ func start_sustain(instrument : String, midi_note : int) -> void:
 	amy.send({
 		"synth" : instrument_ids[instrument],
 		"note" : midi_note,
-		"vel" : 1
+		"vel" : 4
 	})
 
 
