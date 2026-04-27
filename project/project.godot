@@ -37,7 +37,7 @@ enabled=PackedStringArray("res://addons/gdfxr/plugin.cfg")
 
 [gui]
 
-theme/custom_font="uid://cujw32xc8ikd4"
+theme/custom_font="uid://didg68dnvv3um"
 
 [input]
 
