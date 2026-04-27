@@ -7,6 +7,7 @@ signal attack_enemy(damage: float)
 signal mana_changed(player_who_lost_mana: Player)
 signal rest_used(player: Player)
 signal heal(heal: float)
+signal run_used(player: Player)
 @warning_ignore_restore("unused_signal")
 
 @export var midnight_sonata: Button
@@ -23,6 +24,7 @@ signal heal(heal: float)
 @export var action_list: HBoxContainer
 @export var note: Button
 @export var rest: Button
+@export var run: Button
 
 @export_group("For PlayerAttack...")
 @export var player_1_hp_mp: Panel
@@ -46,6 +48,15 @@ func _ready() -> void:
 	enemy.players = [player1, player2]
 	
 		
+		
+		
+func _on_run_pressed() -> void:
+	var damage : int = enemy.generate_attack()
+	enemy.attack_player(damage)
+	if not can_interact:
+		return
+	rest_used.emit(currently_selected_player)
+	
 func _on_rest_pressed() -> void:
 	if not can_interact:
 		return
@@ -96,9 +107,3 @@ func reset_battle_menu() -> void:
 	action_list.visible = true
 	note_list.visible = false
 	note.grab_focus.call_deferred()
-
-
-func _on_run_pressed() -> void:
-	#This is just to test boss damage is working 
-	var damage : int = enemy.generate_attack()
-	enemy.attack_player(damage)
