@@ -40,7 +40,9 @@ func Enter() -> void:
 		
 	if !batNavMenu.rest_used.is_connected(_on_rest_used):
 		batNavMenu.rest_used.connect(_on_rest_used)
-	
+		
+	if !batNavMenu.run_used.is_connected(_on_run_used):
+		batNavMenu.run_used.connect(_on_run_used)
 
 
 func Exit() -> void:
@@ -115,6 +117,14 @@ func Update(_delta: float) -> void:
 func Physics_Update(_delta: float) -> void:
 	pass
 	
+	
+func _on_run_used(player: Player) -> void:
+	if player == batNavMenu.player1:
+		batNavMenu.currently_selected_player = batNavMenu.player2
+		batNavMenu.reset_battle_menu()
+	else:
+		Transitioned.emit(self, "BossAttack")
+
 func _on_rest_used(player: Player) -> void:
 	print("rest used by ", player)
 	player.mana = min(player.mana + 5, player.max_mp)

@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://btxh0ktbyasvb" path="res://scripts/battle_menu/state_machine.gd" id="2_1coue"]
 [ext_resource type="Script" uid="uid://dwao5v14tg6be" path="res://scripts/battle_menu/player_attack.gd" id="2_2rajg"]
 [ext_resource type="PackedScene" uid="uid://66uyqv601b5e" path="res://components/battle_menu/hpmpbar.tscn" id="2_g847m"]
-[ext_resource type="Texture2D" uid="uid://bj4c3g5fypha1" path="res://assets/images/fire.png" id="2_hngcd"]
-[ext_resource type="Texture2D" uid="uid://d0l4ili1w1s8b" path="res://assets/images/sleep-mhw-status-effect.png" id="3_u20u5"]
-[ext_resource type="Texture2D" uid="uid://54jlj7udvc24" path="res://assets/images/Poison_JE3_BE2.png" id="4_klmld"]
+[ext_resource type="Texture2D" uid="uid://cc23wu0osq7pn" path="res://assets/images/fire.png" id="2_hngcd"]
+[ext_resource type="Texture2D" uid="uid://biqdatn8ogffq" path="res://assets/images/sleep-mhw-status-effect.png" id="3_u20u5"]
+[ext_resource type="Texture2D" uid="uid://jv621m84pjns" path="res://assets/images/Poison_JE3_BE2.png" id="4_klmld"]
 [ext_resource type="Script" uid="uid://dgb603ic60bhb" path="res://scripts/battle_menu/boss_attack.gd" id="5_1okau"]
 [ext_resource type="Script" uid="uid://cqqic6rv6vr0c" path="res://scripts/battle_menu/player.gd" id="5_sig0y"]
 [ext_resource type="Script" uid="uid://6u7lbu2fdt12" path="res://scripts/battle_menu/Move_Attack.gd" id="6_2aenj"]
@@ -45,7 +45,7 @@ script = ExtResource("5_sig0y")
 strength = 2
 mana = 15
 health = 10
-moves = Array[ExtResource("6_2aenj")]([ExtResource("7_nt45v"), ExtResource("8_amt7q"), ExtResource("9_323y1")])
+moves = Array[ExtResource("6_2aenj")]([ExtResource("8_amt7q"), ExtResource("10_kna4a"), ExtResource("12_bhdlv")])
 
 [node name="Player2" type="Sprite2D" parent="." unique_id=181280006]
 position = Vector2(219, 476)
@@ -54,7 +54,7 @@ texture = ExtResource("7_w8dc6")
 script = ExtResource("5_sig0y")
 mana = 11
 health = 10
-moves = Array[ExtResource("6_2aenj")]([ExtResource("10_kna4a"), ExtResource("11_jterj"), ExtResource("12_bhdlv")])
+moves = Array[ExtResource("6_2aenj")]([ExtResource("7_nt45v"), ExtResource("11_jterj"), ExtResource("9_323y1")])
 
 [node name="Enemy" type="Sprite2D" parent="." unique_id=1723623278]
 position = Vector2(1035, 495)
