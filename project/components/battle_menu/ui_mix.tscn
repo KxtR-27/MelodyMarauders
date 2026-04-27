@@ -21,6 +21,43 @@
 [ext_resource type="LabelSettings" uid="uid://dge4kigionryt" path="res://resources/adjusted_default_label_settings.tres" id="16_w8dc6"]
 [ext_resource type="Texture2D" uid="uid://c8sh8l73jeqpg" path="res://resources/textures/enemy_icon.tres" id="17_2ioj6"]
 
+[sub_resource type="Animation" id="Animation_nlm3i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 16, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_2aenj"]
+resource_name = "hurt_anim"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 16, 16), Rect2(16, 80, 16, 16), Rect2(32, 80, 16, 16), Rect2(48, 80, 16, 16), Rect2(0, 80, 16, 16), Rect2(0, 16, 16, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt45v"]
+_data = {
+&"RESET": SubResource("Animation_nlm3i"),
+&"hurt_anim": SubResource("Animation_2aenj")
+}
+
 [node name="UiMix" type="Node2D" unique_id=195094249]
 
 [node name="StateMachine" type="Node" parent="." unique_id=74671769 node_paths=PackedStringArray("initial_state")]
@@ -86,6 +123,9 @@ position = Vector2(188, 20)
 scale = Vector2(4, 4)
 texture = ExtResource("17_2ioj6")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy" unique_id=254661287]
+libraries/ = SubResource("AnimationLibrary_nt45v")
+
 [node name="BattleMenuNavigation" parent="." unique_id=1690783701 node_paths=PackedStringArray("player1", "player2", "enemy", "player_1_hp_mp", "player_2_hp_mp") instance=ExtResource("6_v7pk5")]
 offset_left = 1.0
 offset_top = 125.0
@@ -132,6 +172,7 @@ offset_top = 65.0
 offset_bottom = 117.0
 bar_owner = NodePath("../Player2")
 
+[connection signal="boss_hurt" from="StateMachine/PlayerAttack" to="Enemy" method="_on_player_attack_boss_hurt"]
 [connection signal="enemy_took_damage" from="Enemy" to="Enemy/EnemyHP/HPvalue" method="_on_enemy_enemy_took_damage"]
 [connection signal="attack_enemy" from="BattleMenuNavigation" to="Enemy" method="_on_battle_menu_navigation_attack_enemy"]
 [connection signal="mana_changed" from="BattleMenuNavigation" to="Player1HPMP" method="_on_battle_menu_navigation_mana_changed"]
